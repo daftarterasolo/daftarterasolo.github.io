@@ -73,6 +73,8 @@ export class masySubmitProcessor extends submitProcessor {
 			'dataToSend' : this.#obj.get_dataToSend 
 		}
 
+		//console.log(dataComplete);
+
 		//console.log('Melakukan entry data ... ');
 		document.querySelector('.loadingBar').style.display = "block";
 		try {

@@ -183,6 +183,7 @@ export class createFormPabrik extends createFormMasy {
 		this.#clearFormPendaftaran();
 		//let filteredData = this.#pabrikData.filter(e => e[1] === katakunci);
 		let filteredData = srcData.filter(e => e[1] === katakunci);
+		console.log(filteredData);
 		if (filteredData[0] != undefined) {
 			/*
 			document.getElementById("alamat").value = filteredData[0][2];

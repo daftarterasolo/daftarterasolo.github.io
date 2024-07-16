@@ -28,7 +28,7 @@ export async function listOfUttpPabrik() {
 }
 
 export async function getPabrikTimb() {
-	let url = "https://script.google.com/macros/s/AKfycbyabHAX8qUiIDXOcNpMqz5kwPu4FGvpBVVrKHT_LwTbZ4OtDHIZVmaXpyJEJ3g17Q/exec";
+	let url = "https://script.google.com/macros/s/AKfycbz7z-gCbm3-l3qQJB-41YHoGCxk_4kyWLMQ6N573RBJjvXW7wkNpnBNAwxMlqzAXQs/exec";
 
 	let pabrik = [];
 	await fetch(url).then(data => data.json()).then(data => {
@@ -40,7 +40,7 @@ export async function getPabrikTimb() {
 }
 
 export async function getSpbu() {
-	let url = "https://script.google.com/macros/s/AKfycbzTS7dvzJ28gIdHX5kE6BY_0cmPbMmP5dWpJXlt-wB2xzUnHvh8ol2Km6YnstBOTRs/exec";
+	let url = "https://script.google.com/macros/s/AKfycbxsy-EBzyq_wZeV7IWGY4DDQ12NE1FnB7wn9TWFG2lde1ytQHfkV4vfWVk-xbelLL0/exec";
 
 	let spbu = [];
 	await fetch(url).then(data => data.json()).then(data => {
@@ -52,7 +52,7 @@ export async function getSpbu() {
 }
 
 export async function getPerusahaanLoko() {
-	let url = "https://script.google.com/macros/s/AKfycbxWvCLGEN9o5TPYJJYApn4ssSgGUCYgNPvKsK6uGFGo7dIUrJsFKrvagsWZCMaq2og/exec";
+	let url = "https://script.google.com/macros/s/AKfycbzG7LVYx6Vk4IUMLlTA6IYNDaPIsMCPlcts4e5h343w_d9j1GkMVx9x1HdsSsH873g/exec";
 
 	let spbu = [];
 	await fetch(url).then(data => data.json()).then(data => {
