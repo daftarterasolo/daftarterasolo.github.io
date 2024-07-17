@@ -84,7 +84,7 @@ export class createFormPabrik extends createFormMasy {
 			
 			document.querySelector(".jmlhDiv").style.display = "none";
 			let listTampung = [].concat(this.list[this.get_listIndex]);
-			console.log(listTampung);
+			//console.log(listTampung);
 			
 			listTampung.push(document.getElementById("jml").value);
 			listTampung.push(document.getElementById("serial").value);

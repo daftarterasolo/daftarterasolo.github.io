@@ -16,7 +16,8 @@ export class masySubmitProcessor extends submitProcessor {
 	constructor(obj) {
 		super(constructor);
 		this.#obj = obj;
-		this.#detectIfSubmitClicked();
+		//this.#detectIfSubmitClicked();
+		this.detectIfSubmitClicked();
 		//this.#api = "https://script.google.com/macros/s/AKfycbyy2jsLFItoH2iSsbee3o4IjH_d-X_gm8zJClJNmZ76nXcF532iqDtVb9FFP5SBLqmxBA/exec";
 
 		//this.#api = "https://script.google.com/macros/s/AKfycbysLaGr6E7Csyg62OqWf_gU9JBJsy0hEOszUTdISCvfYE-dPtZ7-qyEnUeXJCIkfe2eig/exec";
@@ -73,7 +74,7 @@ export class masySubmitProcessor extends submitProcessor {
 			'dataToSend' : this.#obj.get_dataToSend 
 		}
 
-		//console.log(dataComplete);
+		console.log(dataComplete);
 
 		//console.log('Melakukan entry data ... ');
 		document.querySelector('.loadingBar').style.display = "block";
@@ -104,7 +105,8 @@ export class masySubmitProcessor extends submitProcessor {
 		
 	}
 
-	#detectIfSubmitClicked() {
+	//#detectIfSubmitClicked() {
+	detectIfSubmitClicked() {
 		document.getElementById('sbmt').addEventListener('click', e => {
 			try {
 				//this.#checkIfDataToSendIsEmpty();
@@ -116,6 +118,10 @@ export class masySubmitProcessor extends submitProcessor {
 				alert(e);
 			}
 		});
+	}
+
+	get get_entryTheData() {
+		return this.#entryTheData();
 	}
 
 	get get_checkIfDataToSendIsEmpty() {
@@ -132,11 +138,25 @@ export class pabrikSubmitProcessor extends masySubmitProcessor {
 		//this.set_api = "https://script.google.com/macros/s/AKfycbw_qgL6gQ461xKUFwXw44Si-iEzpGjszAvqOh7ofHDG53dVbzbq3qVmtMMz--Pg9qh6Tw/exec";
 		//this.set_api = "https://script.google.com/macros/s/AKfycbxXWhcmQnczWgpzVbkjrhlsbOaV6Gwo3_7GdUBh9zX1Hjb_J7Rui-oZVYMT97MxNA3cgw/exec";
 		this.set_api = "https://script.google.com/macros/s/AKfycbyYm3-phhARbczPrhb3-waLOoFd4UdX6Jfea-RVWAhdNyhQTNAyszsboVZbKC55TSWrWw/exec";
+		//https://script.google.com/macros/s/AKfycbyYm3-phhARbczPrhb3-waLOoFd4UdX6Jfea-RVWAhdNyhQTNAyszsboVZbKC55TSWrWw/exec
+		//https://script.google.com/macros/s/AKfycbyYm3-phhARbczPrhb3-waLOoFd4UdX6Jfea-RVWAhdNyhQTNAyszsboVZbKC55TSWrWw/exec
 	}
 
 	//override method showConfirmation in parent class
 	showConfirmation(msg, respon) {
 		alert(`${msg}\nNomor Order Anda : ${respon}`);
+	}
+
+	detectIfSubmitClicked() {
+		document.getElementById('sbmt').addEventListener('click', e => {
+			try {
+				this.get_checkIfDataToSendIsEmpty;
+				this.get_entryTheData;
+			}
+			catch(e) {
+				alert(e);
+			}
+		});
 	}
 
 
