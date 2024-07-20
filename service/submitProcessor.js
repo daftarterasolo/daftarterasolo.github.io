@@ -137,9 +137,8 @@ export class pabrikSubmitProcessor extends masySubmitProcessor {
 	setApi() {
 		//this.set_api = "https://script.google.com/macros/s/AKfycbw_qgL6gQ461xKUFwXw44Si-iEzpGjszAvqOh7ofHDG53dVbzbq3qVmtMMz--Pg9qh6Tw/exec";
 		//this.set_api = "https://script.google.com/macros/s/AKfycbxXWhcmQnczWgpzVbkjrhlsbOaV6Gwo3_7GdUBh9zX1Hjb_J7Rui-oZVYMT97MxNA3cgw/exec";
-		this.set_api = "https://script.google.com/macros/s/AKfycbyYm3-phhARbczPrhb3-waLOoFd4UdX6Jfea-RVWAhdNyhQTNAyszsboVZbKC55TSWrWw/exec";
-		//https://script.google.com/macros/s/AKfycbyYm3-phhARbczPrhb3-waLOoFd4UdX6Jfea-RVWAhdNyhQTNAyszsboVZbKC55TSWrWw/exec
-		//https://script.google.com/macros/s/AKfycbyYm3-phhARbczPrhb3-waLOoFd4UdX6Jfea-RVWAhdNyhQTNAyszsboVZbKC55TSWrWw/exec
+		//this.set_api = "https://script.google.com/macros/s/AKfycbyYm3-phhARbczPrhb3-waLOoFd4UdX6Jfea-RVWAhdNyhQTNAyszsboVZbKC55TSWrWw/exec";
+		this.set_api = "https://script.google.com/macros/s/AKfycbwdRP6avsB2L8Lds4VgbULxH3U0WmWDfoCwKF5tsdZOjtTUqoJPdY1jB2wNkrTRPAP0_w/exec";
 	}
 
 	//override method showConfirmation in parent class

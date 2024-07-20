@@ -175,7 +175,8 @@ export class createFormPabrik extends createFormMasy {
 	#clearFormPendaftaran() {
 		document.getElementById("alamat").value = "";
 		document.getElementById("kel").value = "";
-		document.getElementById("wa").value = "";			
+		document.getElementById("wa").value = "";	
+		document.getElementById("id_pabrik").value = "";			
 	}
 
 	//method untuk dijalankan pada method #generateEventHandler()
@@ -192,7 +193,8 @@ export class createFormPabrik extends createFormMasy {
 			*/
 			document.getElementById("alamat").value = `Untuk perlindungan data pribadi, alamat & nomor HP/WA tidak kami tampilkan`;
 			document.getElementById("kel").value = filteredData[0][4];
-			document.getElementById("wa").value = `XXXXXXXXXXX`;			
+			document.getElementById("wa").value = `************`;	
+			document.getElementById("id_pabrik").value = filteredData[0][0];			
 		}
 	}
 
@@ -203,14 +205,25 @@ export class createFormPabrik extends createFormMasy {
 	//method utk dijalankan pd method generateBtnHandler()
 	#generateEventHandler() {	
 		document.getElementById("nama").addEventListener('input', e => {
-			e.target.value.length > 1 ? this.#autoCompleteForm(e.target.value.toUpperCase(), this.determineDataSrc()) : '';
+			e.target.value.length > 0 ? this.#autoCompleteForm(e.target.value.toUpperCase(), this.determineDataSrc()) : '';
 		});
 
 		document.getElementById("nama").addEventListener('keyup', e => {
-			e.target.value.length > 1 ? this.#autoCompleteForm(e.target.value.toUpperCase(), this.determineDataSrc()) : '';
+			e.target.value.length > 0 ? this.#autoCompleteForm(e.target.value.toUpperCase(), this.determineDataSrc()) : '';
 		});
 
 	}
+
+	//override get get_dataForm() pada parent class
+	get get_dataForm() {
+		let parent_dataForm = super.get_dataForm;
+		parent_dataForm['alamat'] = '';
+		parent_dataForm['wa'] = '';
+		parent_dataForm['jenisTera'] = 'tera';
+		parent_dataForm['id_pabrik'] = parseInt(document.getElementById('id_pabrik').value);
+		
+		return parent_dataForm;
+	}	
 
 	//overide method setCssSubmitBtn() pd parent class
 	static setCssSubmitBtn() {
@@ -224,4 +237,5 @@ export class createFormPabrik extends createFormMasy {
 		super.generateBtnHandler();
 		this.#generateEventHandler();
 	}
+
 }
