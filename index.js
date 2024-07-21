@@ -166,6 +166,7 @@ import { masySubmitProcessorRedApp } from './service/submitProcessorRedApp.js';
 								<textarea  class="form_data" name="alamat" id="alamat" rows="4" cols="10" placeholder="Masukkan alamat"></textarea>  
 								<input type="text" class="form_data" name="kel" id="kel" list="kelurahan" placeholder="Masukkan kelurahan">  
 								<input type="text" class="form_data" name="wa" id="wa" placeholder="Nomor HP/Whatsapp">
+								<input type="hidden" class="form_data" name="id_perusahaanLoko" id="id_perusahaanLoko" placeholder="ID Perusahaan Loko">
 								<input type="button" name="next" id="next" value="Next..">
 							</form>
 						</div>
@@ -197,6 +198,7 @@ import { masySubmitProcessorRedApp } from './service/submitProcessorRedApp.js';
 		formLoko.generateBtnHandler();
 
 		const sbmtHandler = new lokoSubmitProcessor(formLoko);
+		sbmtHandler.setApi();
 	});
 
 	let menuReparatir = document.querySelector(".menu2").children[0];

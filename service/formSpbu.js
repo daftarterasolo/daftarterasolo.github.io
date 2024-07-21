@@ -3,6 +3,7 @@ import { createFormMasy } from './formMasy.js';
 import { getSpbu } from '../util/utilFunc.js';
 
 export class createFormSpbu extends createFormPabrik {
+//export class createFormSpbu extends createFormMasy {
 	#spbuData = [];
 	#dataForm = {};
 

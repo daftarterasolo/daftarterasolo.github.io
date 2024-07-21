@@ -72,7 +72,8 @@ export class createFormLoko extends createFormMasy {
 	#clearFormPendaftaran() {
 		document.getElementById("alamat").value = "";
 		document.getElementById("kel").value = "";
-		document.getElementById("wa").value = "";			
+		document.getElementById("wa").value = "";
+		document.getElementById("id_perusahaanLoko").value = "";
 	}
 
 	//method untuk dijalankan pada method #generateEventHandler()
@@ -80,6 +81,7 @@ export class createFormLoko extends createFormMasy {
 		this.#clearFormPendaftaran();
 		
 		let filteredData = srcData.filter(e => e[1] === katakunci);
+		console.log(filteredData);
 		if (filteredData[0] != undefined) {
 			/*
 			document.getElementById("alamat").value = filteredData[0][2];
@@ -88,7 +90,8 @@ export class createFormLoko extends createFormMasy {
 			*/
 			document.getElementById("alamat").value = `Untuk perlindungan data pribadi, alamat & nomor HP/WA tidak kami tampilkan`;
 			document.getElementById("kel").value = filteredData[0][4];
-			document.getElementById("wa").value = `XXXXXXXXXXX`;			
+			document.getElementById("wa").value = `****************`;
+			document.getElementById("id_perusahaanLoko").value = filteredData[0][0];				
 		}
 	}
 
@@ -115,11 +118,22 @@ export class createFormLoko extends createFormMasy {
 		this.#generateEventHandler();
 	}	
 
+	/* old version
 	get get_dataForm() {
 		this.#dataForm['nama'] = document.getElementById('nama').value;
 		this.#dataForm['alamat'] = document.getElementById('alamat').value;
 		this.#dataForm['kel'] = document.getElementById('kel').value;
 		this.#dataForm['wa'] = document.getElementById('wa').value; 
+		this.#dataForm['jenisTera'] = "loko";
+		return this.#dataForm;
+	}
+	*/
+	get get_dataForm() {
+		this.#dataForm['nama'] = document.getElementById('nama').value;
+		this.#dataForm['alamat'] = '';
+		this.#dataForm['kel'] = document.getElementById('kel').value;
+		this.#dataForm['wa'] = '';
+		this.#dataForm['id_perusahaanLoko'] = parseInt(document.getElementById('id_perusahaanLoko').value); 
 		this.#dataForm['jenisTera'] = "loko";
 		return this.#dataForm;
 	}

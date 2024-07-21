@@ -120,6 +120,10 @@ export class masySubmitProcessor extends submitProcessor {
 		});
 	}
 
+	get get_getDataForm() {
+		return this.#obj.get_dataForm;
+	}
+
 	get get_entryTheData() {
 		return this.#entryTheData();
 	}
@@ -146,9 +150,17 @@ export class pabrikSubmitProcessor extends masySubmitProcessor {
 		alert(`${msg}\nNomor Order Anda : ${respon}`);
 	}
 
+	#checkIfdataFormPabrikIsEmpty() {
+		let dat = this.get_getDataForm; 
+		if (dat['nama'] === "" || dat['kel'] === "") {
+			throw new Error("Anda belum mengisi data identitas [Nama Pabrik & Kelurahan] dengan lengkap....Silahkan klik tanda tombol 'Back' untuk melengkapi data identitas.");
+		}
+	}
+
 	detectIfSubmitClicked() {
 		document.getElementById('sbmt').addEventListener('click', e => {
 			try {
+				this.#checkIfdataFormPabrikIsEmpty();
 				this.get_checkIfDataToSendIsEmpty;
 				this.get_entryTheData;
 			}
@@ -162,6 +174,32 @@ export class pabrikSubmitProcessor extends masySubmitProcessor {
 }
 
 export class lokoSubmitProcessor extends masySubmitProcessor {
+	setApi() {
+		//this.set_api = "https://script.google.com/macros/s/AKfycbw_qgL6gQ461xKUFwXw44Si-iEzpGjszAvqOh7ofHDG53dVbzbq3qVmtMMz--Pg9qh6Tw/exec";
+		//this.set_api = "https://script.google.com/macros/s/AKfycbxXWhcmQnczWgpzVbkjrhlsbOaV6Gwo3_7GdUBh9zX1Hjb_J7Rui-oZVYMT97MxNA3cgw/exec";
+		//this.set_api = "https://script.google.com/macros/s/AKfycbyYm3-phhARbczPrhb3-waLOoFd4UdX6Jfea-RVWAhdNyhQTNAyszsboVZbKC55TSWrWw/exec";
+		this.set_api = "https://script.google.com/macros/s/AKfycbwR6haE-f74V5IxghkK_M9J_47YBSMSbXph9yChQ8XNWyUjqgn9ejeskUIXBhhGOn5V2g/exec";
+	}
+	
+	#checkIfdataFormLokoIsEmpty() {
+		let dat = this.get_getDataForm; 
+		if (dat['nama'] === "" || dat['kel'] === "") {
+			throw new Error("Anda belum mengisi data identitas [Nama Perusahaan Loko & Kelurahan] dengan lengkap....Silahkan klik tanda tombol 'Back' untuk melengkapi data identitas.");
+		}
+	}
+
+	detectIfSubmitClicked() {
+		document.getElementById('sbmt').addEventListener('click', e => {
+			try {
+				this.#checkIfdataFormLokoIsEmpty();
+				this.get_checkIfDataToSendIsEmpty;
+				this.get_entryTheData;
+			}
+			catch(e) {
+				alert(e);
+			}
+		});
+	}
 
 }
 
