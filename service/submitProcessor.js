@@ -175,10 +175,9 @@ export class pabrikSubmitProcessor extends masySubmitProcessor {
 
 export class lokoSubmitProcessor extends masySubmitProcessor {
 	setApi() {
-		//this.set_api = "https://script.google.com/macros/s/AKfycbw_qgL6gQ461xKUFwXw44Si-iEzpGjszAvqOh7ofHDG53dVbzbq3qVmtMMz--Pg9qh6Tw/exec";
-		//this.set_api = "https://script.google.com/macros/s/AKfycbxXWhcmQnczWgpzVbkjrhlsbOaV6Gwo3_7GdUBh9zX1Hjb_J7Rui-oZVYMT97MxNA3cgw/exec";
 		//this.set_api = "https://script.google.com/macros/s/AKfycbyYm3-phhARbczPrhb3-waLOoFd4UdX6Jfea-RVWAhdNyhQTNAyszsboVZbKC55TSWrWw/exec";
-		this.set_api = "https://script.google.com/macros/s/AKfycbwR6haE-f74V5IxghkK_M9J_47YBSMSbXph9yChQ8XNWyUjqgn9ejeskUIXBhhGOn5V2g/exec";
+		//this.set_api = "https://script.google.com/macros/s/AKfycbwR6haE-f74V5IxghkK_M9J_47YBSMSbXph9yChQ8XNWyUjqgn9ejeskUIXBhhGOn5V2g/exec";
+		this.set_api = "https://script.google.com/macros/s/AKfycbw_wTCCbmqV0-zcKeqFFOLhYQKaOtylHikS--iUZfdmG744d902tXIfYx26zQigpCpnGg/exec";
 	}
 	
 	#checkIfdataFormLokoIsEmpty() {

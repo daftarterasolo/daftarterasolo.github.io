@@ -129,12 +129,22 @@ export class createFormLoko extends createFormMasy {
 	}
 	*/
 	get get_dataForm() {
-		this.#dataForm['nama'] = document.getElementById('nama').value;
-		this.#dataForm['alamat'] = '';
-		this.#dataForm['kel'] = document.getElementById('kel').value;
-		this.#dataForm['wa'] = '';
-		this.#dataForm['id_perusahaanLoko'] = parseInt(document.getElementById('id_perusahaanLoko').value); 
-		this.#dataForm['jenisTera'] = "loko";
+		if (document.getElementById('id_perusahaanLoko').value === '') {
+			this.#dataForm['nama'] = document.getElementById('nama').value;
+			this.#dataForm['alamat'] = document.getElementById('alamat').value;
+			this.#dataForm['kel'] = document.getElementById('kel').value;
+			this.#dataForm['wa'] = document.getElementById('wa').value;
+			this.#dataForm['id_perusahaanLoko'] = ''; 
+			this.#dataForm['jenisTera'] = "loko";
+		} else {
+			this.#dataForm['nama'] = document.getElementById('nama').value;
+			this.#dataForm['alamat'] = '';
+			this.#dataForm['kel'] = document.getElementById('kel').value;
+			this.#dataForm['wa'] = '';
+			this.#dataForm['id_perusahaanLoko'] = parseInt(document.getElementById('id_perusahaanLoko').value); 
+			this.#dataForm['jenisTera'] = "loko";			
+		}
+		
 		return this.#dataForm;
 	}
 
