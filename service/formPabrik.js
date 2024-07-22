@@ -181,7 +181,8 @@ export class createFormPabrik extends createFormMasy {
 
 	//method untuk dijalankan pada method #generateEventHandler()
 	#autoCompleteForm(katakunci, srcData) {
-		this.#clearFormPendaftaran();
+		//this.#clearFormPendaftaran();
+		this.get_clearFormPendaftaran;
 		//let filteredData = this.#pabrikData.filter(e => e[1] === katakunci);
 		let filteredData = srcData.filter(e => e[1] === katakunci);
 		console.log(filteredData);
@@ -205,13 +206,23 @@ export class createFormPabrik extends createFormMasy {
 	//method utk dijalankan pd method generateBtnHandler()
 	#generateEventHandler() {	
 		document.getElementById("nama").addEventListener('input', e => {
-			e.target.value.length > 0 ? this.#autoCompleteForm(e.target.value.toUpperCase(), this.determineDataSrc()) : '';
+			//e.target.value.length > 0 ? this.#autoCompleteForm(e.target.value.toUpperCase(), this.determineDataSrc()) : '';
+			e.target.value.length > 0 ? this.set_autoCompleteForm = [e.target.value.toUpperCase(), this.determineDataSrc()] : '';
 		});
 
 		document.getElementById("nama").addEventListener('keyup', e => {
-			e.target.value.length > 0 ? this.#autoCompleteForm(e.target.value.toUpperCase(), this.determineDataSrc()) : '';
+			//e.target.value.length > 0 ? this.#autoCompleteForm(e.target.value.toUpperCase(), this.determineDataSrc()) : '';
+			e.target.value.length > 0 ? this.set_autoCompleteForm = [e.target.value.toUpperCase(), this.determineDataSrc()] : '';
 		});
 
+	}
+
+	get get_clearFormPendaftaran() {
+		return this.#clearFormPendaftaran();
+	}
+
+	set set_autoCompleteForm([keyword, data]) {
+		this.#autoCompleteForm(keyword, data);
 	}
 
 	//override get get_dataForm() pada parent class

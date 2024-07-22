@@ -116,6 +116,7 @@ import { masySubmitProcessorRedApp } from './service/submitProcessorRedApp.js';
 								<textarea  class="form_data" name="alamat" id="alamat" rows="4" cols="10" placeholder="Masukkan alamat SPBU"></textarea>  
 								<input type="text" class="form_data" name="kel" id="kel" list="kelurahan" placeholder="Masukkan kelurahan">  
 								<input type="text" class="form_data" name="wa" id="wa" placeholder="Nomor HP/Whatsapp">
+								<input type="text" class="form_data" name="id_spbu" id="id_spbu" placeholder="ID SPBU">
 								<input type="button" name="next" id="next" value="Next..">
 							</form>
 						</div>

@@ -24,6 +24,13 @@ export class createFormSpbu extends createFormPabrik {
 		document.getElementById("spbu") != null ? this.#spbuData = await getSpbu() : '';
 	}
 
+	#clearFormPendaftaranSpbu() {
+		document.getElementById("alamat").value = "";
+		document.getElementById("kel").value = "";
+		document.getElementById("wa").value = "";	
+		document.getElementById("id_spbu").value = "";			
+	}
+
 	/*
 	//override method methodRunWhenSubmit() pd parent class utk menghandle tombol submit ketika ditekan..
 	static methodToRunWhenSubmit() {
@@ -60,12 +67,37 @@ export class createFormSpbu extends createFormPabrik {
 		document.getElementById("sbmt").style.borderColor = "rgb(67, 38, 22)";
 	}
 
+	#autoCompleteFormSpbu(katakunci, srcData) {
+		this.get_clearFormPendaftaran;
+		let filteredData = srcData.filter(e => e[1] === katakunci);
+		console.log(filteredData);
+		if (filteredData[0] != undefined) {
+			document.getElementById("alamat").value = `Untuk perlindungan data pribadi, alamat & nomor HP/WA tidak kami tampilkan`;
+			document.getElementById("kel").value = filteredData[0][4];
+			document.getElementById("wa").value = `************`;	
+			document.getElementById("id_spbu").value = filteredData[0][0];			
+		}
+	}
+
+	//overide method in parent class
+	get get_clearFormPendaftaran() {
+		return this.#clearFormPendaftaranSpbu();
+	}
+
+	//overide method in parent class
+	set set_autoCompleteForm([keyword, data]) {
+		this.#autoCompleteFormSpbu(keyword, data);
+	}
+
+	//override method in parent class
 	get get_dataForm() {
 		this.#dataForm['nama'] = document.getElementById('nama').value;
-		this.#dataForm['alamat'] = document.getElementById('alamat').value;
+		this.#dataForm['alamat'] = '';
 		this.#dataForm['kel'] = document.getElementById('kel').value;
-		this.#dataForm['wa'] = document.getElementById('wa').value; 
+		this.#dataForm['wa'] = ''; 
 		this.#dataForm['jenisTera'] = "spbu";
+		this.#dataForm['id_spbu'] = parseInt(document.getElementById('id_spbu').value);
+		
 		return this.#dataForm;
 	}
 
