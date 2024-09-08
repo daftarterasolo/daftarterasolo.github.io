@@ -254,7 +254,7 @@ export class masyPrepareCam extends prepareCam {
         await this.#siapkanKamera();
         scandiv.removeChild(h3);
         h3.setAttribute("id","qrTitle");
-        h3.innerHTML = "Kamera Siap.<br>Scan QRCode Pada UTTP Utk Mendaftar";
+        h3.innerHTML = "Kamera Siap ya gaess.<br>Scan QRCode Pada UTTP Utk Mendaftar";
         scandiv.contains(document.getElementById('qrTitle')) ? scandiv.removeChild(h3) : '';
         scandiv.prepend(h3);
         let p = document.createElement("a");
