@@ -36,7 +36,15 @@ export class masyPrepareCam extends prepareCam {
                 audio : false   
             }
     
+            let scandiv = document.querySelector(".scanDiv");
+            scandiv.removeChild(h3);
+            h3.setAttribute("id","qrTitle");
+            h3.innerHTML = "Kamera Siap ya gaess.<br>Scan QRCode Pada UTTP Utk Mendaftar";
+            scandiv.contains(document.getElementById('qrTitle')) ? scandiv.removeChild(h3) : '';
+            scandiv.prepend(h3);
+
             //start video stream
+
             await navigator.mediaDevices.getUserMedia(constrain).then(stream => {
                 video.srcObject = stream;
             });
@@ -252,11 +260,11 @@ export class masyPrepareCam extends prepareCam {
         h3.innerHTML = "Tunggu sebentar.. Apps sedang menyiapkan kamera.";
         scandiv.prepend(h3);    
         await this.#siapkanKamera();
-        scandiv.removeChild(h3);
-        h3.setAttribute("id","qrTitle");
-        h3.innerHTML = "Kamera Siap ya gaess.<br>Scan QRCode Pada UTTP Utk Mendaftar";
-        scandiv.contains(document.getElementById('qrTitle')) ? scandiv.removeChild(h3) : '';
-        scandiv.prepend(h3);
+        //scandiv.removeChild(h3);
+        //h3.setAttribute("id","qrTitle");
+        //h3.innerHTML = "Kamera Siap ya gaess.<br>Scan QRCode Pada UTTP Utk Mendaftar";
+        //scandiv.contains(document.getElementById('qrTitle')) ? scandiv.removeChild(h3) : '';
+        //scandiv.prepend(h3);
         let p = document.createElement("a");
         p.setAttribute("class", "qrCloseHref");
         p.innerHTML = "Close";
