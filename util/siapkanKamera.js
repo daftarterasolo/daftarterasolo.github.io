@@ -52,6 +52,9 @@ export class masyPrepareCam extends prepareCam {
             const qrcodeDetector = new BarcodeDetector({ formats : ['qr_code']});
 
             let setIntervalID = setInterval(() => {
+                let judul = document.getElementById("qrTitle");
+                judul.innerHTML = "Tunggu sejenak. Sedang melakukan scan.....";
+
                 qrcodeDetector.detect(video)
                 .then(codes => {
                     if (codes.length === 0) return;
