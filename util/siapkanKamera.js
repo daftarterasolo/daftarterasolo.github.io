@@ -67,7 +67,7 @@ export class masyPrepareCam extends prepareCam {
                 video.srcObject = stream;
             });
             */
-            let streamObj = activateStream();
+            let streamObj = new activateStream();
             let video = await streamObj.mulaiStream();
 
             const qrcodeDetector = new BarcodeDetector({ formats : ['qr_code']});
