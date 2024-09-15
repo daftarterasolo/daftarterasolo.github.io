@@ -76,9 +76,9 @@ export class masyPrepareCam extends prepareCam {
                     clearInterval(setIntervalID);
                     this.#buatHasilQueryDiv("");
                 });
-                video.getTracks().forEach(track => track.stop());
                 judul.innerHTML = "Kamera Siap<br>Scan QRCode Pada UTTP Utk Mendaftar";
             },1000);
+            video.getTracks().forEach(track => track.stop());
             
         }    
     }
