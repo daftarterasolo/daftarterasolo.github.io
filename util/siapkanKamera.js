@@ -14,9 +14,6 @@ class prepareCam {
 }
 
 class activateStream {
-    constructor() {
-        this.vid = document.getElementById("video");
-    }
 
     async mulaiStream() {
         const constrain = {
@@ -29,11 +26,12 @@ class activateStream {
         }
 
         //start video stream
+        let vid = document.getElementById("video");
         await navigator.mediaDevices.getUserMedia(constrain).then(stream => {
-            this.vid.srcObject = stream;
+            vid.srcObject = stream;
         });     
 
-        return this.vid;   
+        return vid;   
     }
 }
 
@@ -48,26 +46,9 @@ export class masyPrepareCam extends prepareCam {
     }
 
     async #siapkanKamera(obj) {
-        //let video = document.getElementById("video");
         
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-            /*
-            const constrain = {
-                video : {
-                    facingMode : {
-                        exact: 'environment'
-                    }
-                },
-                audio : false   
-            }
-    
-            //start video stream
 
-            await navigator.mediaDevices.getUserMedia(constrain).then(stream => {
-                video.srcObject = stream;
-            });
-            */
-            //let streamObj = new activateStream();
             let video = await new activateStream().mulaiStream();
 
             const qrcodeDetector = new BarcodeDetector({ formats : ['qr_code']});
