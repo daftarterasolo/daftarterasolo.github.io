@@ -45,7 +45,7 @@ export class masyPrepareCam extends prepareCam {
 
             //start video stream
 
-            let stream = await navigator.mediaDevices.getUserMedia(constrain).then(stream => {
+            await navigator.mediaDevices.getUserMedia(constrain).then(stream => {
                 video.srcObject = stream;
             });
     
@@ -68,7 +68,7 @@ export class masyPrepareCam extends prepareCam {
     
                     clearInterval(setIntervalID);
                     this.#buatHasilQueryDiv(kode);
-                    stream.getTracks().forEach(track => track.stop());
+                    //stream.getTracks().forEach(track => track.stop());
                     //closeScanDiv();
                 })
                 .catch(err => {
