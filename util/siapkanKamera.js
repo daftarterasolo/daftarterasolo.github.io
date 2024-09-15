@@ -45,7 +45,7 @@ export class masyPrepareCam extends prepareCam {
 
             //start video stream
 
-            await navigator.mediaDevices.getUserMedia(constrain).then(stream => {
+            let stream = await navigator.mediaDevices.getUserMedia(constrain).then(stream => {
                 video.srcObject = stream;
             });
     
@@ -53,12 +53,13 @@ export class masyPrepareCam extends prepareCam {
 
             let setIntervalID = setInterval(() => {
                 let judul = document.getElementById("qrTitle");
-                judul.innerHTML = "Tunggu sejenak. Sedang melakukan scan.....";
 
                 qrcodeDetector.detect(video)
                 .then(codes => {
                     if (codes.length === 0) return;
-    
+                    
+                    judul.innerHTML = "QRCode terdeteksi. Tunggu sejenak. Sedang melakukan scan.....";
+
                     let kode = "";
                     for (const qrcode of codes) {
                         kode = qrcode.rawValue;
@@ -67,6 +68,7 @@ export class masyPrepareCam extends prepareCam {
     
                     clearInterval(setIntervalID);
                     this.#buatHasilQueryDiv(kode);
+                    stream.getTracks().forEach(track => track.stop());
                     //closeScanDiv();
                 })
                 .catch(err => {
@@ -74,6 +76,7 @@ export class masyPrepareCam extends prepareCam {
                     this.#buatHasilQueryDiv("");
                     //closeScanDiv();
                 });
+                judul.innerHTML = "Kamera Siap<br>Scan QRCode Pada UTTP Utk Mendaftar";
             },1000);
             
         }    
@@ -265,7 +268,7 @@ export class masyPrepareCam extends prepareCam {
         await this.#siapkanKamera();
         scandiv.removeChild(h3);
         h3.setAttribute("id","qrTitle");
-        h3.innerHTML = "Kamera Siap ya gaess.<br>Scan QRCode Pada UTTP Utk Mendaftar";
+        h3.innerHTML = "Kamera Siap<br>Scan QRCode Pada UTTP Utk Mendaftar";
         scandiv.contains(document.getElementById('qrTitle')) ? scandiv.removeChild(h3) : '';
         scandiv.prepend(h3);
         let p = document.createElement("a");
