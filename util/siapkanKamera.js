@@ -13,6 +13,30 @@ class prepareCam {
 	}
 }
 
+class activateStream {
+    constructor() {
+        this.vid = document.getElementById("video");
+    }
+
+    async mulaiStream() {
+        const constrain = {
+            video : {
+                facingMode : {
+                    exact: 'environment'
+                }
+            },
+            audio : false   
+        }
+
+        //start video stream
+        await navigator.mediaDevices.getUserMedia(constrain).then(stream => {
+            this.vid.srcObject = stream;
+        });     
+
+        return this.vid;   
+    }
+}
+
 export class masyPrepareCam extends prepareCam {
     #obj;
     qrData;
@@ -24,9 +48,10 @@ export class masyPrepareCam extends prepareCam {
     }
 
     async #siapkanKamera(obj) {
-        let video = document.getElementById("video");
+        //let video = document.getElementById("video");
         
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            /*
             const constrain = {
                 video : {
                     facingMode : {
@@ -36,19 +61,15 @@ export class masyPrepareCam extends prepareCam {
                 audio : false   
             }
     
-            //let scandiv = document.querySelector(".scanDiv");
-            //scandiv.removeChild(h3);
-            //h3.setAttribute("id","qrTitle");
-            //h3.innerHTML = "Kamera Siap ya gaess.<br>Scan QRCode Pada UTTP Utk Mendaftar";
-            //scandiv.contains(document.getElementById('qrTitle')) ? scandiv.removeChild(h3) : '';
-            //scandiv.prepend(h3);
-
             //start video stream
 
             await navigator.mediaDevices.getUserMedia(constrain).then(stream => {
                 video.srcObject = stream;
             });
-    
+            */
+            let streamObj = activateStream();
+            let video = await streamObj.mulaiStream();
+
             const qrcodeDetector = new BarcodeDetector({ formats : ['qr_code']});
 
             let setIntervalID = setInterval(() => {
@@ -69,12 +90,10 @@ export class masyPrepareCam extends prepareCam {
                     clearInterval(setIntervalID);
                     this.#buatHasilQueryDiv(kode);
                     //stream.getTracks().forEach(track => track.stop());
-                    //closeScanDiv();
                 })
                 .catch(err => {
                     clearInterval(setIntervalID);
                     this.#buatHasilQueryDiv("");
-                    //closeScanDiv();
                 });
                 judul.innerHTML = "Kamera Siap<br>Scan QRCode Pada UTTP Utk Mendaftar";
             },1000);
