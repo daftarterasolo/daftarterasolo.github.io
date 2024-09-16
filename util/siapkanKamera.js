@@ -61,7 +61,7 @@ export class masyPrepareCam extends prepareCam {
                     if (codes.length === 0) return;
                     
                     judul.innerHTML = "QRCode terdeteksi. Tunggu sejenak. Sedang melakukan scan.....";
-                    judul.add.style.color = "green";
+                    //judul.add.style.color = "green";
 
                     let kode = "";
                     for (const qrcode of codes) {
