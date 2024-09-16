@@ -122,7 +122,7 @@ export class masyPrepareCam extends prepareCam {
             }
 
             dat = Object.assign({}, this.#obj.get_dataToSend);
-            alert(dat);
+            
             let arr = this.qrData.readData;
             //alert(JSON.stringify(arr));
             let nama_uttp = "";
@@ -135,7 +135,7 @@ export class masyPrepareCam extends prepareCam {
                 }
             }
             
-            alert(arr);
+            //alert(arr);
 
             //alert(JSON.stringify(this.#obj.get_shopChartTemp));
             //alert(JSON.stringify(shopChart));
@@ -167,6 +167,7 @@ export class masyPrepareCam extends prepareCam {
             this.#obj.set_dataToSend = Object.assign({}, dat);
             
             //alert(JSON.stringify(this.#obj.get_dataToSend));
+            alert("UTTP sudah ditambahkan ke Register Chart");
 
             this.#setBackLoadingBtn();
 
