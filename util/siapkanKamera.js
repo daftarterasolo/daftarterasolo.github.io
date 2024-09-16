@@ -80,7 +80,7 @@ export class masyPrepareCam extends prepareCam {
             
             
         }    
-        video.getTracks().forEach(track => track.stop());
+        //video.getTracks().forEach(track => track.stop());
     }
 
     #closeScanDiv() {
