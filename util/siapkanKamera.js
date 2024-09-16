@@ -122,7 +122,7 @@ export class masyPrepareCam extends prepareCam {
             }
 
             dat = Object.assign({}, this.#obj.get_dataToSend);
-
+            alert(dat);
             let arr = this.qrData.readData;
             //alert(JSON.stringify(arr));
             let nama_uttp = "";
