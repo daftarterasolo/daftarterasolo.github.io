@@ -70,7 +70,6 @@ export class masyPrepareCam extends prepareCam {
     
                     clearInterval(setIntervalID);
                     this.#buatHasilQueryDiv(kode);
-                    stream.getTracks().forEach(track => track.stop());
                 })
                 .catch(err => {
                     clearInterval(setIntervalID);
