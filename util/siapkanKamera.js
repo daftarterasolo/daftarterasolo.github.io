@@ -111,7 +111,7 @@ export class masyPrepareCam extends prepareCam {
 
             let shopChart = [].concat(this.#obj.get_shopChartTemp);
 
-            //alert(JSON.stringify(shopChart));
+            alert(JSON.stringify(shopChart));
 
             let dat = {"0" : [1,2,3]};
 
