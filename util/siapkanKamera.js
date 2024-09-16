@@ -135,6 +135,7 @@ export class masyPrepareCam extends prepareCam {
                 }
             }
             
+            alert(arr);
 
             //alert(JSON.stringify(this.#obj.get_shopChartTemp));
             //alert(JSON.stringify(shopChart));
@@ -158,7 +159,7 @@ export class masyPrepareCam extends prepareCam {
             this.#obj.set_shopChartTemp = [].concat(shopChart);
             this.#obj.set_dataToSend = Object.assign({}, dat);
             
-            alert(JSON.stringify(this.#obj.get_dataToSend));
+            //alert(JSON.stringify(this.#obj.get_dataToSend));
 
             this.#setBackLoadingBtn();
 
