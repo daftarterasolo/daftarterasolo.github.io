@@ -1010,11 +1010,13 @@ export class sidangWilayahPrepareCam extends prepareCam {
 
         kueriDiv.style.position = "fixed";
         kueriDiv.style.top = "10%";
-        kueriDiv.style.left = "15%";
+        kueriDiv.style.left = "0%";
         kueriDiv.style.width = "100vw";
-        kueriDiv.style.height = "100vh";
+        kueriDiv.style.height = "70vh";
         kueriDiv.style.zIndex = "9999"; // Pastikan di atas semua elemen lain
         kueriDiv.style.pointerEvents = "auto"; // Aktifkan overlay untuk klik     
+
+        kueriDiv.innerHTML += `<span style="color : #FFFFFF;font-family: 'Montserrat';">x Close</span>`;
 
         let formQR = document.createElement("form");
         formQR.setAttribute("id","formQR");
