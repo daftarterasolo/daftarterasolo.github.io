@@ -21,21 +21,24 @@ export class createFormSidangWilayahRedApp {
 	
 	//method yg dijalankan pd #generateLoadingBar()
 	setLoadingBarColor() {
-		document.querySelectorAll(".lds-facebook div").forEach(el => el.style.background = "#ff6600");
+		document.querySelectorAll(".lds-facebook div").forEach(el => el.style.background = "#5a395b");
 	}
 
 	//new method
-	#setCSSSidangWilayah() {
+	
+	#setCSS() {
 		document.querySelectorAll(".title").forEach(e => {
 			e.style.backgroundColor = "#5a395b";
 			e.style.fontWeight = "bolder";
 			e.style.textShadow = "none";
 		});
-		document.querySelectorAll(".subContent").forEach(e => e.style.borderTop = "6px solid #58610c");
-		document.querySelectorAll(".subContent").forEach(e => e.style.borderBottom = "6px solid #58610c");
-		document.querySelector(".backBtnDiv").style.top = "10px";
+		document.getElementById("next").style.backgroundColor = "#00c04b";
+		document.getElementById("back").style.backgroundColor = "#00c04b";
+		document.querySelectorAll(".subContent").forEach(e => e.style.borderTop = "6px solid #00c04b");
+		document.querySelectorAll(".subContent").forEach(e => e.style.borderBottom = "6px solid #00c04b");
+		document.querySelector("#back").style.top = "10px";
 	}
-
+	
 	//method yg dijalankan pd generateForm()
 	#generateLoadingBar(logic) {
 		document.querySelector(".tutorial") != null ? document.querySelector(".tutorial").remove() : '';
@@ -56,7 +59,7 @@ export class createFormSidangWilayahRedApp {
 		this.formKontainer.insertAdjacentHTML('beforeend', this.str);
 		this.constructor.kelurahan = await getKelurahan();
 		this.#generateLoadingBar(false);
-		this.#setCSSSidangWilayah();
+		this.#setCSS();
 	}
 
 	//method utk dijalankan pada generateListUttp()

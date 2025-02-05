@@ -440,11 +440,9 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 		super(constructor);
 		this.#obj = obj;
 		this.#detectIfSubmitClicked();
-		//this.#api = "https://script.google.com/macros/s/AKfycbxCRpIT-PAtmRHksjns4-xHEraWMc9fC8MT9dYHMEYsv9zr1jCqfmYQIB7sZYxsii-MyA/exec";
-		//this.#api = "https://script.google.com/macros/s/AKfycbwIrVmzY6jI9YiNEAtlepkZijgpXM8PdeLo2tkrLmWw2Ay8QGZIimaKqC7tdqapR7KdCg/exec";
-		//this.#api = "https://script.google.com/macros/s/AKfycbzYB8Wcz-grCuoWPbkHHbyNfyAeNoDVH34Y4P-3ANv9DjwiJ6zep7bRTl2doNbkZI5SQw/exec";
-		//this.#api = "https://script.google.com/macros/s/AKfycbyj0rK_oOiaf-kTEKjlBlutF39wXHHaVsWrddSuqxfgnHWrU9s7EecWYef1vTNRQWLP4w/exec";
-		this.#api = "https://script.google.com/macros/s/AKfycbz3dOKdU1Bk1w9gaQdmqbIx6ZAqTecYhah4KFVx0-CNKgIHVzBbztL-pQ9vFUQtHq8V1Q/exec";	
+
+		//this.#api = "https://script.google.com/macros/s/AKfycbz3dOKdU1Bk1w9gaQdmqbIx6ZAqTecYhah4KFVx0-CNKgIHVzBbztL-pQ9vFUQtHq8V1Q/exec";	
+		this.#api = "https://script.google.com/macros/s/AKfycbxtDiPHpxyoa1OosTatDPQiGYG7QmleQhcAUvfMPemCjzYGiYAVzG0Ax55Fo-VMv615qw/exec";
 
 		this.#authData = {
 			'id' : sessionStorage.getItem('id'),

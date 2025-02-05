@@ -4,7 +4,7 @@ import { createFormSidangWilayahRedApp } from './service/formSidangWilayah.js';
 import { createFormPabrik } from './service/formPabrik.js';
 import { createFormSpbu } from './service/formSpbu.js';
 import { createFormLoko } from './service/formLoko.js';
-import { masyPrepareCam, lokoPrepareCam, scanOnlyPrepareCam } from './util/siapkanKamera.js';
+import { masyPrepareCam, lokoPrepareCam, scanOnlyPrepareCam, sidangWilayahPrepareCam } from './util/siapkanKamera.js';
 import { masySubmitProcessor, pabrikSubmitProcessor, lokoSubmitProcessor, spbuSubmitProcessor } from './service/submitProcessor.js';
 import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp } from './service/submitProcessorRedApp.js';
 
@@ -322,15 +322,15 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp } from '.
 						<p style="text-align : right;"><a class="closeFormJml" href=#><span>x</span> Close</a></div></p>
 					</div>`;
 		
-		const formMasyRedApp = new createFormMasyRedApp(document.querySelector(".main"), str);
-		await formMasyRedApp.generateForm();
-
+		const formSidangWilayahRedApp = new createFormSidangWilayahRedApp(document.querySelector(".main"), str);
+		await formSidangWilayahRedApp.generateForm();
+		
 		const args = ['k', 'this.list[k][0]', 'this.list[k][4]', 'this.list[k][0]', 'this.list[k][1]', 'this.list[k][2]']
-		formMasyRedApp.stringUttp`<div id=${args[0]} class='daftarUttp' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]} ${args[4]}</legend></fieldset></div>`;
-		formMasyRedApp.generateBtnHandler();
+		formSidangWilayahRedApp.stringUttp`<div id=${args[0]} class='daftarUttp' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]} ${args[4]}</legend></fieldset></div>`;
+		formSidangWilayahRedApp.generateBtnHandler();
 
-		const scanHandler = new masyPrepareCam(formMasyRedApp);
-		const sbmtHandler = new masySubmitProcessorRedApp(formMasyRedApp);
+		const scanHandler = new sidangWilayahPrepareCam(formSidangWilayahRedApp);
+		const sbmtHandler = new sidangWilayahSubmitProcessorRedApp(formSidangWilayahRedApp);
 	});
 
 
