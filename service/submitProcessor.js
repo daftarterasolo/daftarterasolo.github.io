@@ -10,6 +10,7 @@ class submitProcessor {
 	}
 }
 
+
 export class masySubmitProcessor extends submitProcessor {
 	#obj;
 	#api;
@@ -215,3 +216,6 @@ export class spbuSubmitProcessor extends masySubmitProcessor {
 		return this.#checkIfJmlEmpty();
 	}
 }
+
+
+
