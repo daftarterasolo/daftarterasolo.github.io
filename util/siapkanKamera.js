@@ -1007,6 +1007,15 @@ export class sidangWilayahPrepareCam extends prepareCam {
     async #buatHasilQueryDiv(kode) {
         let kueriDiv = document.createElement("div");
         kueriDiv.setAttribute("class", "hasilKueriDiv");
+
+        kueriDiv.style.position = "fixed";
+        kueriDiv.style.top = "20%";
+        kueriDiv.style.left = "25%";
+        kueriDiv.style.width = "50vw";
+        kueriDiv.style.height = "50vh";
+        kueriDiv.style.zIndex = "9999"; // Pastikan di atas semua elemen lain
+        kueriDiv.style.pointerEvents = "auto"; // Aktifkan overlay untuk klik     
+
         let formQR = document.createElement("form");
         formQR.setAttribute("id","formQR");
         formQR.innerHTML = `<table id="formTable">
