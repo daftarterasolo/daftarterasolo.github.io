@@ -1009,10 +1009,10 @@ export class sidangWilayahPrepareCam extends prepareCam {
         kueriDiv.setAttribute("class", "hasilKueriDiv");
 
         kueriDiv.style.position = "fixed";
-        kueriDiv.style.top = "20%";
-        kueriDiv.style.left = "25%";
-        kueriDiv.style.width = "50vw";
-        kueriDiv.style.height = "50vh";
+        kueriDiv.style.top = "10%";
+        kueriDiv.style.left = "15%";
+        kueriDiv.style.width = "100vw";
+        kueriDiv.style.height = "100vh";
         kueriDiv.style.zIndex = "9999"; // Pastikan di atas semua elemen lain
         kueriDiv.style.pointerEvents = "auto"; // Aktifkan overlay untuk klik     
 
