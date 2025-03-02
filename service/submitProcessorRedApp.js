@@ -514,6 +514,8 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 			'authData' : this.#authData 
 		}
 
+		alert(dataComplete);
+
 		//console.log('Melakukan entry data ... ');
 		document.querySelector('.loadingBar').style.display = "block";
 		try {
