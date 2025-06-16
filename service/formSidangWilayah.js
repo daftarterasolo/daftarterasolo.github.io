@@ -1,4 +1,4 @@
-import { getKelurahan, listOfUttpMasyRedApp } from '../util/utilFunc.js'; 
+import { getKelurahan, listOfUttpMasyRedApp, getMerkHistory, getTipeHistory } from '../util/utilFunc.js'; 
 /*import { lakukanScan } from '../util/siapkanKamera.js';*/
 
 export class createFormSidangWilayahRedApp {
@@ -307,6 +307,8 @@ export class createFormSidangWilayahRedApp {
 			addBtn.addEventListener('click',async () => {
 				this.#setCss();
 				await this.generateListUttp();
+				await getMerkHistory();
+				await getTipeHistory();
 				this.setCssUttp();
 				this.#closeBtnHandler();
 			});	

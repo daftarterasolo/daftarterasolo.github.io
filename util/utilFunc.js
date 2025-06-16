@@ -24,7 +24,7 @@ export async function listOfUttpMasy() {
 
 export async function listOfUttpPabrik() {
 	let url = "https://script.google.com/macros/s/AKfycbzH27ZTSKFF2Q2xXIRQEs7sd6uNzTfZpp-9BvO9a5JDDrhnf_YHzqc_TYoMtdDNOVI/exec";
-	return await fetch(url).then(datas => datas.json()).then(datas => datas.uttp.filter(e => {return e[0] != "N" && e[0] != "TP" && e[0] != "Meter Kayu" && e[0] != "PUBBM" && e[0] != "TJE"}));		
+	return await fetch(url).then(datas => datas.json()).then(datas => datas.uttp.filter(e => {return e[0] != "N" && e[0] != "TP" && e[0] != "TE" && e[0] != "Meter Kayu" && e[0] != "PUBBM" || (e[0] === "TE" && e[1] === "-") || (e[0] === "TP" && e[1] === "-")}));		
 }
 
 export async function getPabrikTimb() {
@@ -37,6 +37,31 @@ export async function getPabrikTimb() {
 	});
 
 	return pabrik;
+}
+
+
+export async function getMerkHistory() {
+	let url = "https://script.google.com/macros/s/AKfycbyyukoK96KJiE4c6FzKPlCjqTY-i9u82iUF4QoVPAfKW3IGBJRh7udVRKIe6tiKZGE/exec";
+
+	let merkHistory = [];
+	await fetch(url).then(data => data.json()).then(data => {
+		document.getElementById("merkHistory").innerHTML = data.uttp.reduce((acc,elem) => `${acc}<option value='${elem[1]}'>${elem[1]}</option>`,'');
+		merkHistory = data.uttp;
+	});
+
+	return merkHistory;
+}
+
+export async function getTipeHistory() {
+	let url = "https://script.google.com/macros/s/AKfycbyyoqHXlrWHFV8lkxlNaOiEQ9uJ6cp2yuzPjgA2YTD7B5kJxP4lPRFIzhDJ-ueWnyI/exec";
+
+	let tipeHistory = [];
+	await fetch(url).then(data => data.json()).then(data => {
+		document.getElementById("tipeHistory").innerHTML = data.uttp.reduce((acc,elem) => `${acc}<option value='${elem[1]}'>${elem[1]}</option>`,'');
+		tipeHistory = data.uttp;
+	});
+
+	return tipeHistory;
 }
 
 export async function getSpbu() {

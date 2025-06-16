@@ -230,6 +230,9 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp } from '.
 							</div>                  
 						</div>
 						<datalist id="kelurahan"></datalist>
+						<datalist id="merkHistory"></datalist>
+						<datalist id="tipeHistory"></datalist>
+
 					</div>
 					<div class="uttpDiv hidden"></div>					
 					<div class="scanDiv hidden">
@@ -242,8 +245,8 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp } from '.
 							<input type="text" class="form_data2" name="kap" id="kap" readonly placeholder="kapasitas">
 							<input type="text" class="form_data2" name="d" id="d" readonly placeholder="dayabaca">
 							<input type="number" class="form_data2" name="jml" id="jml" placeholder="jumlah..">
-							<input type="text" class="form_data2" name="merk" id="merk" placeholder="merk">
-							<input type="text" class="form_data2" name="tipe" id="tipe" placeholder="tipe/model">
+							<input type="text" class="form_data2" name="merk" id="merk" placeholder="merk" list="merkHistory">
+							<input type="text" class="form_data2" name="tipe" id="tipe" placeholder="tipe/model" list="tipeHistory">
 							<input type="text" class="form_data2" name="sn" id="sn" placeholder="no seri">
 							<input type="text" class="form_data2" name="buatan" id="buatan" placeholder="buatan">
 							<input type="button" class="form_data2" name="setJml" id="setJml" value="Tambahkan ke keranjang">
@@ -255,7 +258,7 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp } from '.
 		await formMasyRedApp.generateForm();
 
 		const args = ['k', 'this.list[k][0]', 'this.list[k][4]', 'this.list[k][0]', 'this.list[k][1]', 'this.list[k][2]']
-		formMasyRedApp.stringUttp`<div id=${args[0]} class='daftarUttp' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]} ${args[4]}</legend></fieldset></div>`;
+		formMasyRedApp.stringUttp`<div id=${args[0]} class='daftarUttp' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]} ${args[4]} / ${args[5]}</legend></fieldset></div>`;
 		formMasyRedApp.generateBtnHandler();
 
 		const scanHandler = new masyPrepareCam(formMasyRedApp);
@@ -301,6 +304,8 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp } from '.
 							</div>                  
 						</div>
 						<datalist id="kelurahan"></datalist>
+						<datalist id="merkHistory"></datalist>
+						<datalist id="tipeHistory"></datalist>
 					</div>
 					<div class="uttpDiv hidden"></div>					
 					<div class="scanDiv hidden">
@@ -313,8 +318,8 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp } from '.
 							<input type="text" class="form_data2" name="kap" id="kap" readonly placeholder="kapasitas">
 							<input type="text" class="form_data2" name="d" id="d" readonly placeholder="dayabaca">
 							<input type="number" class="form_data2" name="jml" id="jml" placeholder="jumlah..">
-							<input type="text" class="form_data2" name="merk" id="merk" placeholder="merk">
-							<input type="text" class="form_data2" name="tipe" id="tipe" placeholder="tipe/model">
+							<input type="text" class="form_data2" name="merk" id="merk" placeholder="merk" list="merkHistory">
+							<input type="text" class="form_data2" name="tipe" id="tipe" placeholder="tipe/model" list="tipeHistory">
 							<input type="text" class="form_data2" name="sn" id="sn" placeholder="no seri">
 							<input type="text" class="form_data2" name="buatan" id="buatan" placeholder="buatan">
 							<input type="button" class="form_data2" name="setJml" id="setJml" value="Tambahkan ke keranjang">
@@ -326,7 +331,7 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp } from '.
 		await formSidangWilayahRedApp.generateForm();
 		
 		const args = ['k', 'this.list[k][0]', 'this.list[k][4]', 'this.list[k][0]', 'this.list[k][1]', 'this.list[k][2]']
-		formSidangWilayahRedApp.stringUttp`<div id=${args[0]} class='daftarUttp' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]} ${args[4]}</legend></fieldset></div>`;
+		formSidangWilayahRedApp.stringUttp`<div id=${args[0]} class='daftarUttp' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]} ${args[4]} / ${args[5]}</legend></fieldset></div>`;
 		formSidangWilayahRedApp.generateBtnHandler();
 
 		const scanHandler = new sidangWilayahPrepareCam(formSidangWilayahRedApp);

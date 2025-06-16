@@ -288,6 +288,10 @@ legend.legendTitle {
     justify-content: space-between;
     overflow : auto;
     scrollbar-color: #38c red;
+
+        top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 
@@ -296,8 +300,10 @@ legend.legendTitle {
 }
 
 .uttpDiv div {
-    width : 48%;
-    height : 145px;
+    /*width : 48%;
+    height : 145px;*/
+       width : 190px;
+    height : 170px;
     background-color : #000000;
     margin : 2px 2px 15px 2px;
     background-size : cover;
@@ -684,7 +690,7 @@ a {
 
 .listLegend {
     background-color: #1E3F66;
-    /*font-size: 10px;*/
+    font-size: 12px;
 }
 
 .tutorial {
@@ -1062,6 +1068,10 @@ div.captionMenu2 {
     overflow : auto;
     scrollbar-color: #38c red;
     padding-top: 5px;
+
+        top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .hasilKueriDiv {
