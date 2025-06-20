@@ -64,6 +64,19 @@ export async function getTipeHistory() {
 	return tipeHistory;
 }
 
+export async function getWtuWilayah() {
+	let url = "https://script.google.com/macros/s/AKfycbyi-41lI63mXCnyXaerSx0-etHIecwPs3prsM_lBycfWkScKZyMys_kNdPooPXXSg/exec";
+
+	let wtuWilayah = [];
+	await fetch(url).then(data => data.json()).then(data => {
+		document.getElementById("wtuWilayah").innerHTML = data.uttp.reduce((acc,elem) => `${acc}<option value='${elem[1]}'>${elem[1]}</option>`,'');
+		wtuWilayah = data.uttp;
+	});
+
+	return wtuWilayah;
+}
+
+
 export async function getSpbu() {
 	let url = "https://script.google.com/macros/s/AKfycbxsy-EBzyq_wZeV7IWGY4DDQ12NE1FnB7wn9TWFG2lde1ytQHfkV4vfWVk-xbelLL0/exec";
 

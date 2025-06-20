@@ -284,7 +284,7 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp } from '.
 						<div class="subContent" id="sub1">
 							<div class="title">Silahkan isi data</div>
 							<form>
-								<input type="text" class="form_data" name="nama" id="nama" placeholder="Masukkan nama / badan usaha">
+								<input type="text" class="form_data" name="nama" id="nama" placeholder="Masukkan nama / badan usaha" list="wtuWilayah">
 								<textarea  class="form_data" name="alamat" id="alamat" rows="4" cols="10" placeholder="Masukkan alamat"></textarea>  
 								<input type="text" class="form_data" name="kel" id="kel" list="kelurahan" placeholder="Masukkan kelurahan">  
 								<input type="number" class="form_data" name="wa" id="wa" placeholder="Nomor HP/Whatsapp">
@@ -306,6 +306,7 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp } from '.
 						<datalist id="kelurahan"></datalist>
 						<datalist id="merkHistory"></datalist>
 						<datalist id="tipeHistory"></datalist>
+						<datalist id="wtuWilayah"></datalist>
 					</div>
 					<div class="uttpDiv hidden"></div>					
 					<div class="scanDiv hidden">

@@ -1,4 +1,4 @@
-import { getKelurahan, listOfUttpMasyRedApp, getMerkHistory, getTipeHistory } from '../util/utilFunc.js'; 
+import { getKelurahan, listOfUttpMasyRedApp, getMerkHistory, getTipeHistory, getWtuWilayah } from '../util/utilFunc.js'; 
 /*import { lakukanScan } from '../util/siapkanKamera.js';*/
 
 export class createFormSidangWilayahRedApp {
