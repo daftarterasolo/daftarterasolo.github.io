@@ -1,7 +1,7 @@
 import { getKelurahan, listOfUttpMasyRedApp, getMerkHistory, getTipeHistory, getWtuWilayah } from '../util/utilFunc.js'; 
 /*import { lakukanScan } from '../util/siapkanKamera.js';*/
 
-export class createFormSidangWilayahRedApp {
+export class createFormSidangWilayahRedAppQrcode {
 	#wtuWilayahData = [];
 	lsKontainer;
 	strUttp;
