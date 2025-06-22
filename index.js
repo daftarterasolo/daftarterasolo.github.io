@@ -1,13 +1,13 @@
 import { createFormMasy } from './service/formMasy.js';
 import { createFormMasyRedApp } from './service/formMasyRedApp.js';
 import { createFormSidangWilayahRedApp } from './service/formSidangWilayah.js';
-import { createFormSidangWilayahRedAppQrcode } from './service/formSidangWilayahQrcode.js';
+//import { createFormSidangWilayahRedAppQrcode } from './service/formSidangWilayahQrcode.js';
 import { createFormPabrik } from './service/formPabrik.js';
 import { createFormSpbu } from './service/formSpbu.js';
 import { createFormLoko } from './service/formLoko.js';
 import { masyPrepareCam, lokoPrepareCam, scanOnlyPrepareCam, sidangWilayahPrepareCam } from './util/siapkanKamera.js';
 import { masySubmitProcessor, pabrikSubmitProcessor, lokoSubmitProcessor, spbuSubmitProcessor } from './service/submitProcessor.js';
-import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp } from './service/submitProcessorRedApp.js';
+import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp, sidangWilayahQrcodeSubmitProcessorRedApp } from './service/submitProcessorRedApp.js';
 
 (function main() {
 	let menuMsy = document.querySelector(".menu").children[1];
@@ -289,6 +289,7 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp } from '.
 								<textarea  class="form_data" name="alamat" id="alamat" rows="4" cols="10" placeholder="Masukkan alamat"></textarea>  
 								<input type="text" class="form_data" name="kel" id="kel" list="kelurahan" placeholder="Masukkan kelurahan">  
 								<input type="number" class="form_data" name="wa" id="wa" placeholder="Nomor HP/Whatsapp">
+								<input type="text" class="form_data read-only" name="qrcode" id="qrcode" placeholder="QRCODE (readonly/tdk perlu diisi)" readonly>
 								<input type="button" name="next" id="next" value="Next..">
 							</form>
 						</div>
@@ -297,7 +298,7 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp } from '.
 							<div class="shopChart"></div>
 							<div class="addUttp">
 								<div class="addDivReparatir">+<p id="klik">Klik disini</p></div>
-								<div class="addDivReparatir qrDivReparatir"></div>
+								<!--<div class="addDivReparatir qrDivReparatir"></div>-->
 							</div>
 							<div class="backBtnDivReparatir">
 								<form><input type="button" name="back" id="back" value="Back.."></form>
@@ -343,12 +344,13 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp } from '.
 
 
 
-
+/*
 
 	let menuSidangWilayahQrcode = document.querySelector(".menu3").children[0];
 
 	menuSidangWilayahQrcode.addEventListener('click', async () => {
 		let str = `<div class="mainContent">      
+						<!--
 						<div class="subContent" id="sub1">
 							<div class="title">Silahkan isi data</div>
 							<form>
@@ -359,15 +361,18 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp } from '.
 								<input type="button" name="next" id="next" value="Next..">
 							</form>
 						</div>
+						-->
 						<div class="subContent" id="sub2">
-							<div class="title">Silahkan Pilih Timbangan/UTTP</div>  
+							<div class="title">Silahkan Klik Icon QRCode</div>  
 							<div class="shopChart"></div>
+							
 							<div class="addUttp">
-								<div class="addDivReparatir">+<p id="klik">Klik disini</p></div>
+								<!--<div class="addDivReparatir">+<p id="klik">Klik disini</p></div>-->
 								<div class="addDivReparatir qrDivReparatir"></div>
 							</div>
+							
 							<div class="backBtnDivReparatir">
-								<form><input type="button" name="back" id="back" value="Back.."></form>
+								<!--<form><input type="button" name="back" id="back" value="Back.."></form>-->
 								<form><input type="button" name="sbmt" id="sbmt" value="Submit"></form>
 							</div>                  
 						</div>
@@ -399,14 +404,16 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp } from '.
 		const formSidangWilayahRedAppQrcode = new createFormSidangWilayahRedAppQrcode(document.querySelector(".main"), str);
 		await formSidangWilayahRedAppQrcode.generateForm();
 		
-		const args = ['k', 'this.list[k][0]', 'this.list[k][4]', 'this.list[k][0]', 'this.list[k][1]', 'this.list[k][2]']
-		formSidangWilayahRedAppQrcode.stringUttp`<div id=${args[0]} class='daftarUttp' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]} ${args[4]} / ${args[5]}</legend></fieldset></div>`;
-		formSidangWilayahRedAppQrcode.generateBtnHandler();
+		
+		//const args = ['k', 'this.list[k][0]', 'this.list[k][4]', 'this.list[k][0]', 'this.list[k][1]', 'this.list[k][2]']
+		//formSidangWilayahRedAppQrcode.stringUttp`<div id=${args[0]} class='daftarUttp' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]} ${args[4]} / ${args[5]}</legend></fieldset></div>`;
+		//formSidangWilayahRedAppQrcode.generateBtnHandler();
+		
 
 		const scanHandler = new sidangWilayahPrepareCam(formSidangWilayahRedAppQrcode);
-		const sbmtHandler = new sidangWilayahSubmitProcessorRedApp(formSidangWilayahRedAppQrcode);
+		const sbmtHandler = new sidangWilayahQrcodeSubmitProcessorRedApp(formSidangWilayahRedAppQrcode);
 	});
-
+*/
 
 
 })();

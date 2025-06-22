@@ -65,11 +65,11 @@ export async function getTipeHistory() {
 }
 
 export async function getWtuWilayah() {
-	let url = "https://script.google.com/macros/s/AKfycbyi-41lI63mXCnyXaerSx0-etHIecwPs3prsM_lBycfWkScKZyMys_kNdPooPXXSg/exec";
+	let url = "https://script.google.com/macros/s/AKfycbzgXh7UnaSzYZrofseIFgIerih0Fpi6SfEsSd39-5fHtjoIVKSvOuRfRQRm1XqQNfg/exec";
 
 	let wtuWilayah = [];
 	await fetch(url).then(data => data.json()).then(data => {
-		document.getElementById("wtuWilayah").innerHTML = data.uttp.reduce((acc,elem) => `${acc}<option value='${elem[1]}'>${elem[1]}</option>`,'');
+		document.getElementById("wtuWilayah").innerHTML = data.uttp.reduce((acc,elem) => `${acc}<option value='${elem[2]}'>${elem[2]}</option>`,'');
 		wtuWilayah = data.uttp;
 	});
 

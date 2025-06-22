@@ -3,6 +3,7 @@ import { getKelurahan, listOfUttpMasyRedApp, getMerkHistory, getTipeHistory, get
 
 export class createFormSidangWilayahRedApp {
 	#wtuWilayahData = [];
+	#dataTerfilter = [];
 	lsKontainer;
 	strUttp;
 	argsUttp;
@@ -279,6 +280,7 @@ export class createFormSidangWilayahRedApp {
 
 	//method utk dijalankan pd #addBtnHandler()
 	#closeBtnHandler() {
+		//alert('tutup');
 		let closeBtn = document.querySelector(".closeHref");
 		closeBtn.addEventListener('click',() => document.querySelector(".uttpDiv").style.display = "none");
 	}
@@ -315,10 +317,11 @@ export class createFormSidangWilayahRedApp {
 			addBtn.addEventListener('click',async () => {
 				this.#setCss();
 				await this.generateListUttp();
+				this.#closeBtnHandler();
 				await getMerkHistory();
 				await getTipeHistory();
 				this.setCssUttp();
-				this.#closeBtnHandler();
+				
 			});	
 		}
 	}
@@ -334,11 +337,21 @@ export class createFormSidangWilayahRedApp {
 		}
 	}
 	*/
+
+	#ifQrcodeNotEmptyHandler(keyword) {
+		//let wtuDatas = this.#wtuWilayahData.filter(subArray => subArray[0] === keyword);
+		console.log(this.#dataTerfilter);
+
+
+
+	}
+
 	//method utk dijalankan pd generateBtnHandler()
 	#nextBtnHandler() {
 		let nextBtn = document.getElementById("next");
 		nextBtn.addEventListener('click',() => {
-			location.href="#sub2";
+			let isQrcodeEmpty = document.getElementById("qrcode").value === "";
+			isQrcodeEmpty ? location.href="#sub2" : this.#ifQrcodeNotEmptyHandler(document.getElementById("nama").value);
 		});		
 	}
 
@@ -360,6 +373,7 @@ export class createFormSidangWilayahRedApp {
 		document.getElementById("alamat").value = "";
 		document.getElementById("kel").value = "";
 		document.getElementById("wa").value = "";	
+		document.getElementById("qrcode").value = "";	
 		//document.getElementById("id_pabrik").value = "";			
 	}
 
@@ -367,14 +381,16 @@ export class createFormSidangWilayahRedApp {
 	#autoCompleteForm(katakunci, srcData) {
 		this.#clearFormPendaftaran();
 		
-		let filteredData = srcData.filter(e => e[1] === katakunci);
+		let filteredData = srcData.filter(e => e[2] === katakunci);
 		console.log(filteredData);
+		this.#dataTerfilter = filteredData;
+
 		if (filteredData[0] != undefined) {
 			
-			document.getElementById("alamat").value = filteredData[0][2];
-			document.getElementById("kel").value = filteredData[0][0];
-			document.getElementById("wa").value = filteredData[0][3];			
-			
+			document.getElementById("alamat").value = filteredData[0][3];
+			document.getElementById("kel").value = filteredData[0][1];
+			document.getElementById("wa").value = filteredData[0][4];			
+			document.getElementById("qrcode").value = filteredData[0][0];	
 		}
 	}
 
@@ -399,7 +415,7 @@ export class createFormSidangWilayahRedApp {
 
 	}
 	//method utk dijalankan pd generateBtnHandler()
-	generateBtnHandler() {
+	async generateBtnHandler() {
 		this.#nextBtnHandler();
 		this.#backBtnHandler();
 		this.#addBtnHandler();

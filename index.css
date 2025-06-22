@@ -588,6 +588,30 @@ legend.legendTitle {
     background-size: contain;
 }
 
+.addDivWilayah {
+    /*position: relative;*/
+    width:80px;
+    height:80px;
+    background-color: #FFFFFF;
+    border-radius: 3px;
+    /*margin-left:auto;
+    margin-right : auto;
+    top : 25%;*/
+    justify-content: center;
+    color : #000000;
+    font-size: 50px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.addDivWilayah:active {
+    background-color: #000000;
+    transform: translateY(2px);
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+
+}
+
 .addUttp {
     position: relative;
     display: flex;
@@ -832,6 +856,15 @@ div.judl {
     color : #FFFFFF;
 }
 
+/*
+.judl .closeHref2 {
+    font-weight: bolder;
+    font-family: 'Montserrat';
+    font-size: 16px;
+    color : #FFFFFF;
+}
+*/
+
 .shopChart table {
     background-color: #1E3F66;
     border : 1px solid #FFFFFF;
@@ -839,6 +872,12 @@ div.judl {
     margin-right: auto;
     margin-top: 10px;
     border-collapse:collapse;
+}
+
+.read-only {
+    background-color: #FFFFFF;
+    color : #4682B4;
+    font-weight: bold;
 }
 
 .shopChart table td {
@@ -1187,3 +1226,22 @@ div.captionMenu3 {
     margin-bottom: 3px;    
 }
 
+#qrcode::placeholder { /* Standar */
+    color: #4682B4; /* Warna abu-abu gelap, Anda bisa ganti dengan kode warna lain */
+    opacity: 1; /* Penting: Beberapa browser (seperti Firefox) memiliki opacity default yang lebih rendah */
+}
+
+#qrcode::-webkit-input-placeholder { /* Untuk browser berbasis WebKit (Chrome, Safari, Edge lama) */
+    color: #4682B4;
+    opacity: 1;
+}
+
+#qrcode:-moz-placeholder { /* Untuk Mozilla Firefox sebelum versi 19 */
+    color: #4682B4;
+    opacity: 1;
+}
+
+#qrcode::-moz-placeholder { /* Untuk Mozilla Firefox versi 19 ke atas */
+    color: #4682B4;
+    opacity: 1;
+}

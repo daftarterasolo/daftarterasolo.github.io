@@ -291,10 +291,11 @@ export class createFormMasyRedApp {
 			addBtn.addEventListener('click',async () => {
 				this.#setCss();
 				await this.generateListUttp();
+				this.#closeBtnHandler();
 				await getMerkHistory();
 				await getTipeHistory();
 				this.setCssUttp();
-				this.#closeBtnHandler();
+				
 			});	
 		}
 	}

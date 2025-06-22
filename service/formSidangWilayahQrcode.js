@@ -1,4 +1,4 @@
-import { getKelurahan, listOfUttpMasyRedApp, getMerkHistory, getTipeHistory, getWtuWilayah } from '../util/utilFunc.js'; 
+//import { getKelurahan, listOfUttpMasyRedApp, getMerkHistory, getTipeHistory, getWtuWilayah } from '../util/utilFunc.js'; 
 /*import { lakukanScan } from '../util/siapkanKamera.js';*/
 
 export class createFormSidangWilayahRedAppQrcode {
@@ -7,7 +7,7 @@ export class createFormSidangWilayahRedAppQrcode {
 	strUttp;
 	argsUttp;
 	list;
-	static kelurahan;
+	//static kelurahan;
 	#listIndex;
 	static shopChartTemp = [];
 	static dataToSend = {};
@@ -20,9 +20,11 @@ export class createFormSidangWilayahRedAppQrcode {
 		this.constructor.shopChartTemp = [];
 	}
 
+	/*
 	async #loadWtuWilayah() {
 		document.getElementById("wtuWilayah") != null ? this.#wtuWilayahData = await getWtuWilayah() : '';
 	}
+	*/
 
 	//method yg dijalankan pd #generateLoadingBar()
 	setLoadingBarColor() {
@@ -37,11 +39,11 @@ export class createFormSidangWilayahRedAppQrcode {
 			e.style.fontWeight = "bolder";
 			e.style.textShadow = "none";
 		});
-		document.getElementById("next").style.backgroundColor = "#00c04b";
-		document.getElementById("back").style.backgroundColor = "#00c04b";
+		//document.getElementById("next").style.backgroundColor = "#00c04b";
+		//document.getElementById("back").style.backgroundColor = "#00c04b";
 		document.querySelectorAll(".subContent").forEach(e => e.style.borderTop = "6px solid #00c04b");
 		document.querySelectorAll(".subContent").forEach(e => e.style.borderBottom = "6px solid #00c04b");
-		document.querySelector("#back").style.top = "10px";
+		//document.querySelector("#back").style.top = "10px";
 	}
 	
 	//method yg dijalankan pd generateForm()
@@ -64,8 +66,8 @@ export class createFormSidangWilayahRedAppQrcode {
 		this.#removeContentComponent();
 		this.formKontainer.insertAdjacentHTML('beforeend', this.str);
 		//this.constructor.kelurahan = await getKelurahan();
-		this.constructor.kelurahan = getKelurahan();
-		await this.#loadWtuWilayah();
+		//this.constructor.kelurahan = getKelurahan();
+		//await this.#loadWtuWilayah();
 		this.#generateLoadingBar(false);
 		this.#setCSS();
 	}
@@ -263,6 +265,7 @@ export class createFormSidangWilayahRedAppQrcode {
 	}*/
 
 	//method utk dijalankan pada #addBtnHandler
+	/*
 	async generateListUttp() {
 		if (document.querySelectorAll(".daftarUttp").length === 0) { // cek jika elemen .daftarUttp sdh ada atau belum
 			let str = `<div class="judl"><a class="closeHref" href=#>Close</a></div>`;
@@ -276,6 +279,7 @@ export class createFormSidangWilayahRedAppQrcode {
 			//this.setJmlPickedUttpQrCode();
 		} 
 	}
+	*/
 
 	//method utk dijalankan pd #addBtnHandler()
 	#closeBtnHandler() {
@@ -309,6 +313,8 @@ export class createFormSidangWilayahRedAppQrcode {
 	*/
 
 	//method utk dijalankan pd generateBtnHandler()
+	
+	/*
 	#addBtnHandler() {
 		let addBtn = document.querySelector(".addDivReparatir");
 		if (addBtn !== null) {
@@ -322,6 +328,7 @@ export class createFormSidangWilayahRedAppQrcode {
 			});	
 		}
 	}
+	*/
 
 	//method utk dijalankan pd generateBtnHandler()
 	/*
@@ -335,13 +342,16 @@ export class createFormSidangWilayahRedAppQrcode {
 	}
 	*/
 	//method utk dijalankan pd generateBtnHandler()
+	
 	#nextBtnHandler() {
+		/*
 		let nextBtn = document.getElementById("next");
 		nextBtn.addEventListener('click',() => {
 			location.href="#sub2";
-		});		
+		});	
+		*/	
 	}
-
+	
 	//method utk dijalankan pd generateBtnHandler()
 	#backBtnHandler() {
 		let backBtn = document.getElementById("back");
@@ -388,6 +398,7 @@ export class createFormSidangWilayahRedAppQrcode {
 	}
 
 	//method utk dijalankan pd method generateBtnHandler()
+	/*
 	#generateEventHandler() {	
 		document.getElementById("nama").addEventListener('input', e => {
 			e.target.value.length > 0 ? this.set_autoCompleteForm = [e.target.value, this.determineDataSrc()] : '';
@@ -398,15 +409,19 @@ export class createFormSidangWilayahRedAppQrcode {
 		});
 
 	}
+	*/
+
 	//method utk dijalankan pd generateBtnHandler()
+	/*
 	generateBtnHandler() {
 		this.#nextBtnHandler();
 		this.#backBtnHandler();
 		this.#addBtnHandler();
-		this.#generateEventHandler();
+		//this.#generateEventHandler();
 		//console.log(this.#wtuWilayahData);
 		//this.#addByQrcodeBtnHandler();
 	}
+	*/
 
 	run_generateShopChartTbl(senarai) {
 		this.constructor.generateShopChartTbl(senarai);
