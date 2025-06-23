@@ -339,11 +339,26 @@ export class createFormSidangWilayahRedApp {
 	*/
 
 	#ifQrcodeNotEmptyHandler(keyword) {
-		//let wtuDatas = this.#wtuWilayahData.filter(subArray => subArray[0] === keyword);
-		console.log(this.#dataTerfilter);
+		//console.log(this.#dataTerfilter);
 
+		document.querySelector(".main-container").classList.remove("hidden");
+		let str = ``;
 
+		this.#dataTerfilter.forEach(el => {
+			str += `
+				<div class="menu-card">
+                    <div class="card-title">
+                        ${el[5]} kap : ${el[6]} d : ${el[7]}
+                    </div>
+                    <div class="card-content">
+                        <div class="card-icon">&#128193;</div>
+                        <p>QRCODE : ${el[0]}<br>Merek : ${el[8]}<br>Tipe: ${el[9]}</p>
+                    </div>
+                </div>
+                `;
+		});
 
+		document.querySelector(".card-wrapper").innerHTML = str;
 	}
 
 	//method utk dijalankan pd generateBtnHandler()
