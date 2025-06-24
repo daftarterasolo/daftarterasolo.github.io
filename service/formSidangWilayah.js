@@ -348,7 +348,7 @@ export class createFormSidangWilayahRedApp {
 			str += `
 				<div class="menu-card">
                     <div class="card-title">
-                        ${el[5]} kap : ${el[6]} d : ${el[7]}
+                        ${el[5]} [kap : ${el[6]}] [d : ${el[7]}]
                     </div>
                     <div class="card-content">
                         <div class="card-icon">&#128193;</div>
@@ -358,6 +358,7 @@ export class createFormSidangWilayahRedApp {
                 `;
 		});
 
+		document.querySelector(".app-name-text").innerHTML = `WTU : ${this.#dataTerfilter[0][2]}`;
 		document.querySelector(".card-wrapper").innerHTML = str;
 	}
 
