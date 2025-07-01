@@ -127,6 +127,7 @@ export class masySubmitProcessorRedApp extends submitProcessor {
 	#detectIfSubmitClicked() {
 		document.getElementById('sbmt').addEventListener('click', e => {
 			try {
+				//console.log(this.#obj.get_dataToSend);
 				//this.#checkIfdataToSendIsUsedAlamatQr();
 				this.get_checkIfDataToSendIsEmpty;
 				this.#checkIfdataFormIsEmpty();
@@ -440,6 +441,7 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 		super(constructor);
 		this.#obj = obj;
 		this.#detectIfSubmitClicked();
+		this.#detectIfSubmitDuaClicked();
 
 		//this.#api = "https://script.google.com/macros/s/AKfycbz3dOKdU1Bk1w9gaQdmqbIx6ZAqTecYhah4KFVx0-CNKgIHVzBbztL-pQ9vFUQtHq8V1Q/exec";	
 		this.#api = "https://script.google.com/macros/s/AKfycbxtDiPHpxyoa1OosTatDPQiGYG7QmleQhcAUvfMPemCjzYGiYAVzG0Ax55Fo-VMv615qw/exec";
@@ -514,7 +516,8 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 			'authData' : this.#authData 
 		}
 
-		alert(dataComplete);
+		console.log(dataComplete);
+
 
 		//console.log('Melakukan entry data ... ');
 		document.querySelector('.loadingBar').style.display = "block";
@@ -542,7 +545,7 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 			document.querySelector('.loadingBar').style.display = "none";
 			this.#ifEntryDataFail(`Entri Data Gagal. Error  :::  ${err}`);
 		}
-		
+
 	}
 
 	#detectIfSubmitClicked() {
@@ -552,6 +555,22 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 				this.get_checkIfDataToSendIsEmpty;
 				this.#checkIfdataFormIsEmpty();
 				this.#entryTheData();
+			}
+			catch(e) {
+				alert(e);
+			}
+		});
+	}
+
+	#detectIfSubmitDuaClicked() {
+		document.getElementById('sbmt2').addEventListener('click', e => {
+			try {
+				console.log(this.#obj.get_dataForm);
+				/*
+				this.get_checkIfDataToSendIsEmpty;
+				this.#checkIfdataFormIsEmpty();
+				this.#entryTheData();
+				*/
 			}
 			catch(e) {
 				alert(e);

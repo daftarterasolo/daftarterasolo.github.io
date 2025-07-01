@@ -302,7 +302,7 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp, sidangWi
 							</div>
 							<div class="backBtnDivReparatir">
 								<form><input type="button" name="back" id="back" value="Back.."></form>
-								<form><input type="button" name="sbmt" id="sbmt" value="Submit"></form>
+								<form><input type="button" name="sbmt" id="sbmt" value="Submit"><input type="button" name="sbmt2" id="sbmt2" value="Submit" hidden></form>
 							</div>                  
 						</div>
 						<datalist id="kelurahan"></datalist>
@@ -337,7 +337,7 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp, sidangWi
 		formSidangWilayahRedApp.stringUttp`<div id=${args[0]} class='daftarUttp' style="background-image : url(${args[2]});"><fieldset class="listFieldset"><legend class="listLegend">${args[3]} ${args[4]} / ${args[5]}</legend></fieldset></div>`;
 		formSidangWilayahRedApp.generateBtnHandler();
 
-		const scanHandler = new sidangWilayahPrepareCam(formSidangWilayahRedApp);
+		//const scanHandler = new sidangWilayahPrepareCam(formSidangWilayahRedApp);
 		const sbmtHandler = new sidangWilayahSubmitProcessorRedApp(formSidangWilayahRedApp);
 	});
 
@@ -413,8 +413,8 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp, sidangWi
 		const scanHandler = new sidangWilayahPrepareCam(formSidangWilayahRedAppQrcode);
 		const sbmtHandler = new sidangWilayahQrcodeSubmitProcessorRedApp(formSidangWilayahRedAppQrcode);
 	});
-*/
 
+*/
 
 })();
 

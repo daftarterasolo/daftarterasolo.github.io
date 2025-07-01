@@ -79,6 +79,7 @@ export class createFormSidangWilayahRedApp {
 		this.argsUttp = args;
 	}
 
+
 	//utk dijalankan pada method #pickUttpHandler
 	#changeShopChartLayout() {
 		//document.querySelector(".addDiv").style.top = "15px";
@@ -365,6 +366,7 @@ export class createFormSidangWilayahRedApp {
                     <div class="card-content">
                         <div class="card-icon" style="background-image : url(${subarray[0][4]});"></div>
                         <p>QRCODE : ${el[0]}<br>Merek : ${el[8]}<br>Tipe: ${el[9]}</p>
+                        <input type="button" name="submit-data" class="sbmt2" value="Submit">
                     </div>
                 </div>
                 `;
@@ -379,6 +381,14 @@ export class createFormSidangWilayahRedApp {
 				this.classList.toggle('overlay-active');
 			});
 		});
+
+		document.querySelectorAll(".sbmt2").forEach(item => {
+			//console.log(item);
+			item.addEventListener("click", function() {
+				document.getElementById("sbmt2").click();
+			});	
+		});
+
 	}
 
 	//method utk dijalankan pd generateBtnHandler()
