@@ -1259,6 +1259,7 @@ div.captionMenu3 {
 
         .main-container {
             width: 100%;
+            height : 100%;
             max-width: 700px;
             background-color: #fff;
             border-radius: 15px;
@@ -1268,6 +1269,7 @@ div.captionMenu3 {
             font-family: 'Poppins', sans-serif;
             position: absolute; /* Penting! */
             z-index: 50; 
+            margin-top: 200px;
         }
 
         .container-header {
@@ -1385,6 +1387,13 @@ div.captionMenu3 {
             font-size: 2.5em;
             color: #FFD700; /* Ikon tetap warna kuning utama */
             margin-bottom: 10px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            height : 100px;
+            width :100px;
+            margin: 0 auto;
+
+
         }
 
         /* Responsive adjustments */
@@ -1419,6 +1428,45 @@ div.captionMenu3 {
                 padding: 0 15px 15px;
             }
         }
+
+
+        .close-button {
+            position: static; /* Kembali ke posisi normal flow di mobile */
+            margin-top: 2px; /* Beri jarak dari elemen di atasnya */
+            align-self: flex-end; /* Posisikan ke kanan jika flex item */
+            order: -1; /* Posisikan di paling atas sebagai flex item */
+            font-size: 0.6em;
+            right: unset; /* Hapus override dari properti absolute */
+            top: unset;
+            color : #FFF;
+        }
+
+        .choosen {
+            background-color: rgba(128, 128, 128, 0.7);
+        }
+
+        .card-content::before {
+            content: ""; /* Wajib ada untuk pseudo-element */
+            position: absolute; /* Membuat overlay menutupi parent */
+            top: 0;
+            left: 0;
+            width: auto;
+            height: auto;
+            background-color: rgba(0, 0, 0, 0); /* Awalnya transparan penuh */
+            pointer-events: none; /* Penting! Memungkinkan klik "melewati" overlay saat tidak aktif */
+            opacity: 0; /* Awalnya tidak terlihat */
+            
+            /* Transisi untuk efek fade-in/out */
+            transition: opacity 0.3s ease, background-color 0.3s ease;
+        }
+
+        /* Kelas yang akan ditambahkan/dihapus oleh JavaScript */
+        .card-content.overlay-active::before {
+            background-color: rgba(128, 128, 128, 0.7); /* Abu-abu transparan (70% opacity) */
+            opacity: 1; /* Menjadi terlihat */
+            pointer-events: auto; /* Menonaktifkan interaksi dengan konten di bawah overlay */
+        }
+
 
         @media (min-width: 550px) and (max-width: 768px) {
             .menu-card {

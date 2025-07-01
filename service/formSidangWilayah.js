@@ -1,4 +1,4 @@
-import { getKelurahan, listOfUttpMasyRedApp, getMerkHistory, getTipeHistory, getWtuWilayah } from '../util/utilFunc.js'; 
+import { getKelurahan, listOfUttpMasyRedApp, getMerkHistory, getTipeHistory, getWtuWilayah, listOfUttpPabrik } from '../util/utilFunc.js'; 
 /*import { lakukanScan } from '../util/siapkanKamera.js';*/
 
 export class createFormSidangWilayahRedApp {
@@ -8,6 +8,7 @@ export class createFormSidangWilayahRedApp {
 	strUttp;
 	argsUttp;
 	list;
+	#listUttp;
 	static kelurahan;
 	#listIndex;
 	static shopChartTemp = [];
@@ -66,6 +67,7 @@ export class createFormSidangWilayahRedApp {
 		this.formKontainer.insertAdjacentHTML('beforeend', this.str);
 		//this.constructor.kelurahan = await getKelurahan();
 		this.constructor.kelurahan = getKelurahan();
+		this.#listUttp = await listOfUttpPabrik();
 		await this.#loadWtuWilayah();
 		this.#generateLoadingBar(false);
 		this.#setCSS();
@@ -263,6 +265,7 @@ export class createFormSidangWilayahRedApp {
 		});	
 	}*/
 
+
 	//method utk dijalankan pada #addBtnHandler
 	async generateListUttp() {
 		if (document.querySelectorAll(".daftarUttp").length === 0) { // cek jika elemen .daftarUttp sdh ada atau belum
@@ -338,20 +341,29 @@ export class createFormSidangWilayahRedApp {
 	}
 	*/
 
-	#ifQrcodeNotEmptyHandler(keyword) {
+	async #ifQrcodeNotEmptyHandler(keyword) {
 		//console.log(this.#dataTerfilter);
+		
+		//document.getElementById("next").value = "Loading.....";
+		//let listUttp = await listOfUttpPabrik();
+		//document.getElementById("next").value = "Next...";
+		
+		//console.log(subarray);
 
 		document.querySelector(".main-container").classList.remove("hidden");
-		let str = ``;
 
+		let str = ``;
+		let subarray = [];
 		this.#dataTerfilter.forEach(el => {
+			subarray = this.#listUttp.filter(elem => elem[0] === el[5].trim().toUpperCase());
+			console.log(subarray);
 			str += `
 				<div class="menu-card">
                     <div class="card-title">
-                        ${el[5]} [kap : ${el[6]}] [d : ${el[7]}]
+                        ${subarray[0][3]}<br>${el[6]} / ${el[7]}
                     </div>
                     <div class="card-content">
-                        <div class="card-icon">&#128193;</div>
+                        <div class="card-icon" style="background-image : url(${subarray[0][4]});"></div>
                         <p>QRCODE : ${el[0]}<br>Merek : ${el[8]}<br>Tipe: ${el[9]}</p>
                     </div>
                 </div>
@@ -360,6 +372,13 @@ export class createFormSidangWilayahRedApp {
 
 		document.querySelector(".app-name-text").innerHTML = `WTU : ${this.#dataTerfilter[0][2]}`;
 		document.querySelector(".card-wrapper").innerHTML = str;
+
+		document.querySelector(".close-button").addEventListener("click", () => document.querySelector(".main-container").classList.add("hidden"));
+		document.querySelectorAll(".card-content").forEach((member) => {
+			member.addEventListener("click", function() {
+				this.classList.toggle('overlay-active');
+			});
+		});
 	}
 
 	//method utk dijalankan pd generateBtnHandler()
