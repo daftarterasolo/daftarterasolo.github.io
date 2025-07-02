@@ -65,7 +65,8 @@ export async function getTipeHistory() {
 }
 
 export async function getWtuWilayah() {
-	let url = "https://script.google.com/macros/s/AKfycbzgXh7UnaSzYZrofseIFgIerih0Fpi6SfEsSd39-5fHtjoIVKSvOuRfRQRm1XqQNfg/exec";
+	//let url = "https://script.google.com/macros/s/AKfycbzgXh7UnaSzYZrofseIFgIerih0Fpi6SfEsSd39-5fHtjoIVKSvOuRfRQRm1XqQNfg/exec";
+	let url = "https://script.google.com/macros/s/AKfycbzOs3mfnc8-8eltAhm7c2TFGFWAvKTPYZ0KYboUk6DMzbQFtTqtdK9ypfMJF-8JyY8/exec";
 
 	let wtuWilayah = [];
 	await fetch(url).then(data => data.json()).then(data => {

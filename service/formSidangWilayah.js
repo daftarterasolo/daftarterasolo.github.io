@@ -13,13 +13,17 @@ export class createFormSidangWilayahRedApp {
 	#listIndex;
 	static shopChartTemp = [];
 	static dataToSend = {};
+	dataToSendPendataan = {};
 	#dataForm = {};
+	//subArray = [];
 
 	constructor(formKontainer, str) {
 		this.formKontainer = formKontainer;
 		this.str = str;
 		this.constructor.dataToSend = {};
+		//this.constructor.dataToSendPendataan = {};
 		this.constructor.shopChartTemp = [];
+		this.constructor.arrTemp = [];
 	}
 
 	async #loadWtuWilayah() {
@@ -355,9 +359,17 @@ export class createFormSidangWilayahRedApp {
 
 		let str = ``;
 		let subarray = [];
+		let i = 0;
+
+		
+		let tempArray = this.#dataTerfilter;
+
 		this.#dataTerfilter.forEach(el => {
 			subarray = this.#listUttp.filter(elem => elem[0] === el[5].trim().toUpperCase());
-			console.log(subarray);
+			//console.log(`subarray`);
+			//console.log(this.#dataTerfilter);
+			
+
 			str += `
 				<div class="menu-card">
                     <div class="card-title">
@@ -365,12 +377,16 @@ export class createFormSidangWilayahRedApp {
                     </div>
                     <div class="card-content">
                         <div class="card-icon" style="background-image : url(${subarray[0][4]});"></div>
-                        <p>QRCODE : ${el[0]}<br>Merek : ${el[8]}<br>Tipe: ${el[9]}</p>
-                        <input type="button" name="submit-data" class="sbmt2" value="Submit">
+                        <p>QRCODE : ${el[0]}<br>Merek : ${el[8]}<br>Tipe: ${el[9]} <br> Serial : ${el[11]}</p>
+                        <input type="button" name="submit-data" class="sbmt2" id="${i}" value="Submit">
                     </div>
                 </div>
                 `;
+
+            i++;
 		});
+
+
 
 		document.querySelector(".app-name-text").innerHTML = `WTU : ${this.#dataTerfilter[0][2]}`;
 		document.querySelector(".card-wrapper").innerHTML = str;
@@ -383,8 +399,14 @@ export class createFormSidangWilayahRedApp {
 		});
 
 		document.querySelectorAll(".sbmt2").forEach(item => {
-			//console.log(item);
-			item.addEventListener("click", function() {
+			//console.log(item.id);
+			//console.log('test');
+			item.addEventListener("click", (el) => {
+				//console.log(item.id);
+				//console.log(tempArray);
+				this.dataToSendPendataan = {"1" : [tempArray[item.id][5].trim(), tempArray[item.id][6], tempArray[item.id][7], tempArray[item.id][5], "gambar timbangan", "1", tempArray[item.id][8], tempArray[item.id][9], tempArray[item.id][11], ""]};
+				//console.log(this.dataToSendPendataan);
+
 				document.getElementById("sbmt2").click();
 			});	
 		});
@@ -469,6 +491,11 @@ export class createFormSidangWilayahRedApp {
 		//this.#addByQrcodeBtnHandler();
 	}
 
+
+	generateDataToSendPendataan() {
+
+	}
+
 	run_generateShopChartTbl(senarai) {
 		this.constructor.generateShopChartTbl(senarai);
 	}
@@ -488,8 +515,15 @@ export class createFormSidangWilayahRedApp {
 	get get_dataToSend() {
 		return this.constructor.dataToSend;
 	}
-
 	
+	get get_dataToSendPendataan() {
+		return this.dataToSendPendataan;
+	}
+
+	/*get dataToSendPendataan_ {
+		return this.constructor.dataToSend;
+	}*/
+
 	get get_dataForm() {
 		this.#dataForm['nama'] = document.getElementById('nama').value;
 		this.#dataForm['alamat'] = document.getElementById('alamat').value;
@@ -529,6 +563,10 @@ export class createFormSidangWilayahRedApp {
 
 	set set_dataToSend(val) {
 		this.constructor.dataToSend = val;
+	}
+
+	set set_dataToSendPendataan(val) {
+		this.constructor.dataToSendPendataan = val;
 	}
 
 	set set_shopChartTemp(val) {

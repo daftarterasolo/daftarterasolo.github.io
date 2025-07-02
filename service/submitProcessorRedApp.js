@@ -509,6 +509,8 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 	async #entryTheData() {
 		//console.log(this.#obj.get_dataForm);
 		//alert(JSON.stringify(this.#obj.get_dataToSend));
+		//let dataComplete = {};
+
 		
 		let dataComplete = {
 			'dataForm' : this.#obj.get_dataForm,
@@ -518,7 +520,7 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 
 		console.log(dataComplete);
 
-
+		
 		//console.log('Melakukan entry data ... ');
 		document.querySelector('.loadingBar').style.display = "block";
 		try {
@@ -545,8 +547,55 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 			document.querySelector('.loadingBar').style.display = "none";
 			this.#ifEntryDataFail(`Entri Data Gagal. Error  :::  ${err}`);
 		}
-
+		
 	}
+
+
+	async #entryTheDataPendataan() {
+		//console.log(this.#obj.get_dataForm);
+		//alert(JSON.stringify(this.#obj.get_dataToSend));
+		//let dataComplete = {};
+
+		
+		let dataComplete = {
+			'dataForm' : this.#obj.get_dataForm,
+			'dataToSend' : this.#obj.get_dataToSendPendataan,
+			'authData' : this.#authData 
+		}
+
+		console.log(dataComplete);
+
+		
+		//console.log('Melakukan entry data ... ');
+		document.querySelector('.loadingBar').style.display = "block";
+		try {
+			await fetch(this.#api, {
+				method : "POST",
+				body : JSON.stringify(dataComplete)
+			})
+			.then(e => e.json())
+			.then(e => {
+				document.querySelector('.loadingBar').style.display = "none";
+				setTimeout(() => {},1000);
+				//e.result === 'success' ? this.#afterEntryDataSuccess(e.msg) : this.#ifEntryDataFail(e.msg);
+				switch(e.result) {
+					case 'success':
+						//this.#afterEntryDataSuccess();
+						//this.showConfirmation(e.msg, e.data);
+						alert("Entry Data Berhasil");
+						break;
+					default:
+						this.#ifEntryDataFail(e.msg);
+				}
+			});
+		}
+		catch(err) {
+			document.querySelector('.loadingBar').style.display = "none";
+			this.#ifEntryDataFail(`Entri Data Gagal. Error  :::  ${err}`);
+		}
+		
+	}
+
 
 	#detectIfSubmitClicked() {
 		document.getElementById('sbmt').addEventListener('click', e => {
@@ -565,12 +614,11 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 	#detectIfSubmitDuaClicked() {
 		document.getElementById('sbmt2').addEventListener('click', e => {
 			try {
-				console.log(this.#obj.get_dataForm);
-				/*
-				this.get_checkIfDataToSendIsEmpty;
+				//this.get_checkIfDataToSendIsEmpty;
 				this.#checkIfdataFormIsEmpty();
-				this.#entryTheData();
-				*/
+				//this.get_checkIfDataToSendIsEmpty;
+				this.#entryTheDataPendataan();
+				
 			}
 			catch(e) {
 				alert(e);
