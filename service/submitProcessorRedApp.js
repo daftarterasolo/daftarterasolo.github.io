@@ -437,6 +437,7 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 	#api;
 	#authData;
 	#apiPendataan;
+	#apiInsertNonPendataan;
 
 	constructor(obj) {
 		super(constructor);
@@ -448,7 +449,7 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 		this.#api = "https://script.google.com/macros/s/AKfycbxtDiPHpxyoa1OosTatDPQiGYG7QmleQhcAUvfMPemCjzYGiYAVzG0Ax55Fo-VMv615qw/exec";
 		this.#apiPendataan = "https://script.google.com/macros/s/AKfycbxRmSNhvaHL9qbuHpt6Qyln7qTEJxgQPnoAtY7t4Fl4AvWNQRw9MhaGQmjrjeQzJ0aBEA/exec";
 		//this.#apiPendataan = "https://script.google.com/macros/s/AKfycbyrgLXibr-l7UKOgotx4EV_nLouw9Ng4RHbi8TyE_wHrteD8AejoMBL1fv-7xwERwoj/exec";
-
+		this.#apiInsertNonPendataan = "https://script.google.com/macros/s/AKfycbwK-RxQqaMg8DFnhZbBddXix0J7OCrLv6rzG83kd6o_v_45uosDMgHuVrNtclyKJsWb/exec";
 		this.#authData = {
 			'id' : sessionStorage.getItem('id'),
 			//'token' : sessionStorage.getItem('key')
@@ -505,6 +506,15 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 		this.#deleteTableShopChart();
 	}
 
+	#afterUpdateDataPendataanSuccess() {
+		this.#obj.set_dataToUpdatePendataan = {};
+	}
+
+	#afterEntryDataPendataanSuccess() {
+		this.#obj.set_dataToSendPendataan = {};
+	}
+
+
 	#ifEntryDataFail(msg) {
 		alert(msg);
 	}
@@ -527,6 +537,7 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 		//console.log('Melakukan entry data ... ');
 		document.querySelector('.loadingBar').style.display = "block";
 		try {
+			
 			await fetch(this.#api, {
 				method : "POST",
 				body : JSON.stringify(dataComplete)
@@ -545,6 +556,17 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 						this.#ifEntryDataFail(e.msg);
 				}
 			});
+			
+
+			await fetch(this.#apiInsertNonPendataan, {
+				method : 'POST',
+				body : JSON.stringify(dataComplete)
+			})
+			.then(e => e.json())
+			.then(e => console.log(e));
+
+			document.querySelector('.loadingBar').style.display = "none";
+
 		}
 		catch(err) {
 			document.querySelector('.loadingBar').style.display = "none";
@@ -583,7 +605,7 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 				//e.result === 'success' ? this.#afterEntryDataSuccess(e.msg) : this.#ifEntryDataFail(e.msg);
 				switch(e.result) {
 					case 'success':
-						//this.#afterEntryDataSuccess();
+						this.#afterEntryDataPendataanSuccess();
 						//this.showConfirmation(e.msg, e.data);
 						alert("Entry Data Pendaftaran Berhasil");
 						break;
@@ -599,7 +621,10 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 				body : JSON.stringify({'qrCode' : this.#obj.get_dataToUpdatePendataan})
 			})
 			.then(e => e.json())
-			.then(e => alert("Update Data Pendataan Berhasil"));
+			.then(e => {
+				this.#afterUpdateDataPendataanSuccess();
+				alert("Update Data Pendataan Berhasil");
+			});
 
 			document.querySelector('.loadingBar').style.display = "none";
 

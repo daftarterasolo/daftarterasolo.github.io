@@ -27,6 +27,11 @@ export async function listOfUttpPabrik() {
 	return await fetch(url).then(datas => datas.json()).then(datas => datas.uttp.filter(e => {return e[0] != "N" && e[0] != "TP" && e[0] != "TE" && e[0] != "Meter Kayu" && e[0] != "PUBBM" || (e[0] === "TE" && e[1] === "-") || (e[0] === "TP" && e[1] === "-")}));		
 }
 
+export async function listOfUttpPabrikNoFilter() {
+	let url = "https://script.google.com/macros/s/AKfycbzH27ZTSKFF2Q2xXIRQEs7sd6uNzTfZpp-9BvO9a5JDDrhnf_YHzqc_TYoMtdDNOVI/exec";
+	return await fetch(url).then(datas => datas.json()).then(datas => datas.uttp);		
+}
+
 export async function getPabrikTimb() {
 	let url = "https://script.google.com/macros/s/AKfycbz7z-gCbm3-l3qQJB-41YHoGCxk_4kyWLMQ6N573RBJjvXW7wkNpnBNAwxMlqzAXQs/exec";
 

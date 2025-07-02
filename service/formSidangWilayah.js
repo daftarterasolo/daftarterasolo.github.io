@@ -1,4 +1,4 @@
-import { getKelurahan, listOfUttpMasyRedApp, getMerkHistory, getTipeHistory, getWtuWilayah, listOfUttpPabrik } from '../util/utilFunc.js'; 
+import { getKelurahan, listOfUttpMasyRedApp, getMerkHistory, getTipeHistory, getWtuWilayah, listOfUttpPabrik, listOfUttpPabrikNoFilter } from '../util/utilFunc.js'; 
 /*import { lakukanScan } from '../util/siapkanKamera.js';*/
 
 export class createFormSidangWilayahRedApp {
@@ -9,6 +9,7 @@ export class createFormSidangWilayahRedApp {
 	argsUttp;
 	list;
 	#listUttp;
+	#listUttpNoFilter;
 	static kelurahan;
 	#listIndex;
 	static shopChartTemp = [];
@@ -73,6 +74,7 @@ export class createFormSidangWilayahRedApp {
 		//this.constructor.kelurahan = await getKelurahan();
 		this.constructor.kelurahan = getKelurahan();
 		this.#listUttp = await listOfUttpPabrik();
+		this.#listUttpNoFilter = await listOfUttpPabrikNoFilter();
 		await this.#loadWtuWilayah();
 		this.#generateLoadingBar(false);
 		this.#setCSS();
@@ -368,7 +370,8 @@ export class createFormSidangWilayahRedApp {
 		//console.log(tempArray);
 
 		this.#dataTerfilter.forEach(el => {
-			subarray = this.#listUttp.filter(elem => elem[0] === el[5].trim().toUpperCase());
+			console.log(this.#listUttpNoFilter);
+			subarray = this.#listUttpNoFilter.filter(elem => elem[0] === el[5].trim().toUpperCase());
 			//console.log(`subarray`);
 			//console.log(this.#dataTerfilter);
 			
