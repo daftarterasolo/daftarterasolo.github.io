@@ -14,6 +14,7 @@ export class createFormSidangWilayahRedApp {
 	static shopChartTemp = [];
 	static dataToSend = {};
 	dataToSendPendataan = {};
+	dataToUpdatePendataan = {};
 	#dataForm = {};
 	//subArray = [];
 
@@ -364,6 +365,8 @@ export class createFormSidangWilayahRedApp {
 		
 		let tempArray = this.#dataTerfilter;
 
+		//console.log(tempArray);
+
 		this.#dataTerfilter.forEach(el => {
 			subarray = this.#listUttp.filter(elem => elem[0] === el[5].trim().toUpperCase());
 			//console.log(`subarray`);
@@ -406,7 +409,7 @@ export class createFormSidangWilayahRedApp {
 				//console.log(tempArray);
 				this.dataToSendPendataan = {"1" : [tempArray[item.id][5].trim(), tempArray[item.id][6], tempArray[item.id][7], tempArray[item.id][5], "gambar timbangan", "1", tempArray[item.id][8], tempArray[item.id][9], tempArray[item.id][11], ""]};
 				//console.log(this.dataToSendPendataan);
-
+				this.dataToUpdatePendataan = [[tempArray[item.id][0].trim(), tempArray[item.id][3], "SAH", tempArray[item.id][10]]];
 				document.getElementById("sbmt2").click();
 			});	
 		});
@@ -520,6 +523,10 @@ export class createFormSidangWilayahRedApp {
 		return this.dataToSendPendataan;
 	}
 
+	get get_dataToUpdatePendataan() {
+		return this.dataToUpdatePendataan;
+	}
+
 	/*get dataToSendPendataan_ {
 		return this.constructor.dataToSend;
 	}*/
@@ -566,7 +573,11 @@ export class createFormSidangWilayahRedApp {
 	}
 
 	set set_dataToSendPendataan(val) {
-		this.constructor.dataToSendPendataan = val;
+		this.dataToSendPendataan = val;
+	}
+
+	set set_dataToUpdatePendataan(val) {
+		this.dataToUpdatePendataan = val;
 	}
 
 	set set_shopChartTemp(val) {

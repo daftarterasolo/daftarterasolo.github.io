@@ -286,10 +286,11 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp, sidangWi
 							<div class="title">Silahkan isi data</div>
 							<form>
 								<input type="text" class="form_data" name="nama" id="nama" placeholder="Masukkan nama / badan usaha" list="wtuWilayah">
-								<textarea  class="form_data" name="alamat" id="alamat" rows="4" cols="10" placeholder="Masukkan alamat"></textarea>  
+								<textarea  class="form_data" name="alamat" id="alamat" rows="2" cols="10" placeholder="Masukkan alamat"></textarea>  
 								<input type="text" class="form_data" name="kel" id="kel" list="kelurahan" placeholder="Masukkan kelurahan">  
 								<input type="number" class="form_data" name="wa" id="wa" placeholder="Nomor HP/Whatsapp">
-								<input type="text" class="form_data read-only" name="qrcode" id="qrcode" placeholder="QRCODE (readonly/tdk perlu diisi)" readonly>
+								<!--<input type="text" class="form_data" name="jenis-usaha" id="jenis-usaha" placeholder="Jenis usaha">-->
+								<input type="text" class="form_data read-only" name="qrcode" id="qrcode" placeholder="QRCODE (readonly/tdk perlu diisi)">
 								<input type="button" name="next" id="next" value="Next..">
 							</form>
 						</div>

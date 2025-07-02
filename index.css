@@ -975,7 +975,7 @@ td.icon {
     background-color: #000000;
     opacity: 0.8;
     top: -2px;
-    z-index: 5;
+    z-index: 75;
     align-content: center;
 }
 
