@@ -449,7 +449,7 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 		this.#api = "https://script.google.com/macros/s/AKfycbxtDiPHpxyoa1OosTatDPQiGYG7QmleQhcAUvfMPemCjzYGiYAVzG0Ax55Fo-VMv615qw/exec";
 		this.#apiPendataan = "https://script.google.com/macros/s/AKfycbxRmSNhvaHL9qbuHpt6Qyln7qTEJxgQPnoAtY7t4Fl4AvWNQRw9MhaGQmjrjeQzJ0aBEA/exec";
 		//this.#apiPendataan = "https://script.google.com/macros/s/AKfycbyrgLXibr-l7UKOgotx4EV_nLouw9Ng4RHbi8TyE_wHrteD8AejoMBL1fv-7xwERwoj/exec";
-		this.#apiInsertNonPendataan = "https://script.google.com/macros/s/AKfycbwK-RxQqaMg8DFnhZbBddXix0J7OCrLv6rzG83kd6o_v_45uosDMgHuVrNtclyKJsWb/exec";
+		this.#apiInsertNonPendataan = "https://script.google.com/macros/s/AKfycbxZGsROdnnc0wzkm63e08TCYEZiZWl7ZjJZNO5jDmmXADI-ZaW2JjAeCTJJvwQ1O37k/exec";
 		this.#authData = {
 			'id' : sessionStorage.getItem('id'),
 			//'token' : sessionStorage.getItem('key')
@@ -544,8 +544,8 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 			})
 			.then(e => e.json())
 			.then(e => {
-				document.querySelector('.loadingBar').style.display = "none";
-				setTimeout(() => {},1000);
+				//document.querySelector('.loadingBar').style.display = "none";
+				//setTimeout(() => {},1000);
 				//e.result === 'success' ? this.#afterEntryDataSuccess(e.msg) : this.#ifEntryDataFail(e.msg);
 				switch(e.result) {
 					case 'success':
@@ -563,7 +563,15 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 				body : JSON.stringify(dataComplete)
 			})
 			.then(e => e.json())
-			.then(e => console.log(e));
+			.then(e => {
+				switch(e.status) {
+					case 'success':
+						alert("Update data non-pendataan berhasil");
+						break;
+					default:
+						alert("Update data non-pendataan gagal!.");
+				}
+			});
 
 			document.querySelector('.loadingBar').style.display = "none";
 
