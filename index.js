@@ -397,7 +397,6 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp, sidangWi
 							<input type="text" class="form_data2" name="tipe" id="tipe" placeholder="tipe/model" list="tipeHistory">
 							<input type="text" class="form_data2" name="sn" id="sn" placeholder="no seri">
 							<input type="text" class="form_data2" name="buatan" id="buatan" placeholder="buatan">
-							<input type="text" class="form_data2" name="qrcode" id="qrcode" placeholder="QRCode (tidak perlu diisi)" readonly>
 							<input type="button" class="form_data2" name="setJml" id="setJml" value="Tambahkan ke keranjang">
 						</form>
 						<p style="text-align : right;"><a class="closeFormJml" href=#><span>x</span> Close</a></div></p>

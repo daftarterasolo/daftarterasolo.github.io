@@ -227,6 +227,7 @@ export class masyPrepareCam extends prepareCam {
             <tr><td>Serial</td><td><input type="text" class="form_data2" name="qrSn" id="qrSn" placeholder="serial"></td></tr>
             <tr><td>Jenis Usaha</td><td><input type="text" class="form_data2" name="qrJenisUsaha" id="qrJenisUsaha" placeholder="jenisUsaha"></td></tr>
             <tr><td>Buatan</td><td><input type="text" class="form_data2" name="qrBuatan" id="qrBuatan" placeholder="buatan"></td></tr>
+            <tr><td>QRcode</td><td><input type="text" class="form_data2" name="qrcode" id="qrcode" placeholder="QRCode (tidak perlu diisi)" readonly></td></tr>
             <!--<input type="checkbox" id="addr" name="addr" value="ya">-->
             </table>
             <!--<label id="addrLabel" for="addr">Apakah ingin menggunakan alamat ssi QrCode?</label><br>-->
@@ -238,8 +239,8 @@ export class masyPrepareCam extends prepareCam {
     
         let formSb = document.createElement("form");
         formSb.innerHTML = `<input type="button" id="sbBtn" value="Tambahkan ke Keranjang" data-inline="true">`;
-        let formCnl = document.createElement("form");
-        formCnl.innerHTML = `<input type="button" id="clBtn" value="Cancel" data-inline="true">`;
+        //let formCnl = document.createElement("form");
+        //formCnl.innerHTML = `<input type="button" id="clBtn" value="Cancel" data-inline="true">`;
     
         kueriDiv.append(formQR);
         kueriDiv.append(formSb);
