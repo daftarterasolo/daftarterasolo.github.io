@@ -899,13 +899,13 @@ export class sidangWilayahPrepareCam extends prepareCam {
         document.getElementById("sbBtn").addEventListener("click", async () => {
             
             this.#setLoadingBtn();
-            //alert(JSON.stringify(this.#obj.get_shopChartTemp));
+            alert(JSON.stringify(this.#obj.get_shopChartTemp));
             
             this.#setLoadingBtn();
 
             let shopChart = [].concat(this.#obj.get_shopChartTemp);
 
-            //alert(JSON.stringify(shopChart));
+            alert(JSON.stringify(shopChart));
 
             let dat = {"0" : [1,2,3]};
 
