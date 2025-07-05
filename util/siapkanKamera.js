@@ -1071,6 +1071,7 @@ export class sidangWilayahPrepareCam extends prepareCam {
         document.getElementById("qrModel").setAttribute('value', this.qrData.readData[12]);
         document.getElementById("qrSn").setAttribute('value', this.qrData.readData[15]);
         document.getElementById("qrJenisUsaha").setAttribute('value', this.qrData.readData[16]);
+        document.getElementById("qrcode").setAttribute("value", this.qrData.readData[1]);
         this.#closeKueriDiv();
         this.#addToChartBtnHandler();
 
