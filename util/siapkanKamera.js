@@ -1032,7 +1032,7 @@ export class sidangWilayahPrepareCam extends prepareCam {
             <tr><td>Serial</td><td><input type="text" class="form_data2" name="qrSn" id="qrSn" placeholder="serial"></td></tr>
             <tr><td>Jenis Usaha</td><td><input type="text" class="form_data2" name="qrJenisUsaha" id="qrJenisUsaha" placeholder="jenisUsaha"></td></tr>
             <tr><td>Buatan</td><td><input type="text" class="form_data2" name="qrBuatan" id="qrBuatan" placeholder="buatan"></td></tr>
-            <!--<tr><td>QRCode</td><td><input type="text" class="form_data2" name="qrcode" id="qrcode" placeholder="QRCode (readonly)" readonly></td></tr>-->
+            <tr><td>QRCode</td><td><input type="text" class="form_data2" name="qrcode" id="qrcode" placeholder="QRCode (readonly)" readonly></td></tr>
             <!--<input type="checkbox" id="addr" name="addr" value="ya">-->
             </table>
             <!--<label id="addrLabel" for="addr">Apakah ingin menggunakan alamat ssi QrCode?</label><br>-->
