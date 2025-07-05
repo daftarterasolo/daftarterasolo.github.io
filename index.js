@@ -1,7 +1,7 @@
 import { createFormMasy } from './service/formMasy.js';
 import { createFormMasyRedApp } from './service/formMasyRedApp.js';
 import { createFormSidangWilayahRedApp } from './service/formSidangWilayah.js';
-//import { createFormSidangWilayahRedAppQrcode } from './service/formSidangWilayahQrcode.js';
+import { createFormSidangWilayahRedAppQrcode } from './service/formSidangWilayahQrcode.js';
 import { createFormPabrik } from './service/formPabrik.js';
 import { createFormSpbu } from './service/formSpbu.js';
 import { createFormLoko } from './service/formLoko.js';
@@ -345,7 +345,7 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp, sidangWi
 
 
 
-/*
+
 
 	let menuSidangWilayahQrcode = document.querySelector(".menu3").children[0];
 
@@ -415,7 +415,7 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp, sidangWi
 		const sbmtHandler = new sidangWilayahQrcodeSubmitProcessorRedApp(formSidangWilayahRedAppQrcode);
 	});
 
-*/
+
 
 })();
 

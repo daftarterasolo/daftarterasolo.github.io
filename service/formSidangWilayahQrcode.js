@@ -61,8 +61,15 @@ export class createFormSidangWilayahRedAppQrcode {
 	}
 
 
+
+
 	async generateForm() {
 		this.#generateLoadingBar(true);
+
+	    await new Promise((resolve) => {
+	    	setTimeout(() => resolve('done'),1500);
+	    });
+
 		this.#removeContentComponent();
 		this.formKontainer.insertAdjacentHTML('beforeend', this.str);
 		//this.constructor.kelurahan = await getKelurahan();
