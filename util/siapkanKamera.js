@@ -272,6 +272,7 @@ export class masyPrepareCam extends prepareCam {
     
     async #lakukanScan() {
         let scandiv = document.querySelector(".scanDiv");
+        //scandiv.classList.add("hidden");
         scandiv.classList.remove("hidden");
         let h3 = document.createElement("h3");
         h3.setAttribute("id","qrTitle");
@@ -534,6 +535,7 @@ export class lokoPrepareCam extends prepareCam {
     
     async #lakukanScan() {
         let scandiv = document.querySelector(".scanDiv");
+        //scandiv.classList.add("hidden");
         scandiv.classList.remove("hidden");
         let h3 = document.createElement("h3");
         h3.setAttribute("id","qrTitle");
@@ -798,6 +800,7 @@ export class scanOnlyPrepareCam extends prepareCam {
     async #lakukanScan() {
         let scandiv = document.querySelector(".scanDiv");
         this.#setCssScanDiv();
+        //scandiv.classList.add("hidden");
         scandiv.classList.remove("hidden");
         let h3 = document.createElement("h3");
         h3.setAttribute("id","qrTitle");
@@ -840,7 +843,9 @@ export class sidangWilayahPrepareCam extends prepareCam {
     }
 
     async #siapkanKamera(obj) {
+        this.#buatHasilQueryDiv("KEL1472");
         
+        /*
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
             let video = await new activateStream().mulaiStream();
@@ -876,6 +881,7 @@ export class sidangWilayahPrepareCam extends prepareCam {
             
         }    
         //video.getTracks().forEach(track => track.stop());
+        */
     }
 
     #closeScanDiv() {
@@ -899,13 +905,15 @@ export class sidangWilayahPrepareCam extends prepareCam {
         document.getElementById("sbBtn").addEventListener("click", async () => {
             
             this.#setLoadingBtn();
-            alert(JSON.stringify(this.#obj.get_shopChartTemp));
+            console.log("this.#obj.get_shopChartTemp");
+            console.log(JSON.stringify(this.#obj.get_shopChartTemp));
             
             this.#setLoadingBtn();
 
             let shopChart = [].concat(this.#obj.get_shopChartTemp);
 
-            alert(JSON.stringify(shopChart));
+            console.log("shopChart");
+            console.log(JSON.stringify(shopChart));
 
             let dat = {"0" : [1,2,3]};
 
@@ -918,7 +926,9 @@ export class sidangWilayahPrepareCam extends prepareCam {
             dat = Object.assign({}, this.#obj.get_dataToSend);
             
             let arr = this.qrData.readData;
-            //alert(JSON.stringify(arr));
+            console.log("this.qrData.readData");
+            console.log(JSON.stringify(arr));
+
             let nama_uttp = "";
             let objList = await listOfUttpMasyRedApp();
 
@@ -938,9 +948,10 @@ export class sidangWilayahPrepareCam extends prepareCam {
                 let alamatArray = [document.getElementById("qrNama").value, document.getElementById("qrAlamat").value, arr[2], arr[5], "tera kantor"];
 
                 shopChart.push([arr[8],arr[9],arr[10],nama_uttp,"","1",`${arr[11] === "" || arr[11] === "-" ? document.getElementById("qrMerk").value : arr[11]}`,`${arr[12] === "" || arr[12] === "-" ? document.getElementById("qrModel").value : arr[12]}`,`${arr[15] === "" || arr[15] === "-" ? document.getElementById("qrSn").value : arr[15]}`,`${document.getElementById("qrBuatan").value}`, alamatArray]);
+                //console.log(shopChart);
 
                 dat[Object.keys(dat).length + 1] = [arr[8],arr[9],arr[10],nama_uttp,"","1",`${arr[11] === "" || arr[11] === "-" ? document.getElementById("qrMerk").value : arr[11]}`,`${arr[12] === "" || arr[12] === "-" ? document.getElementById("qrModel").value : arr[12]}`,`${arr[15] === "" || arr[15] === "-" ? document.getElementById("qrSn").value : arr[15]}`,`${document.getElementById("qrBuatan").value}`, alamatArray];
-                
+                //console.log(dat);
                 /*
                 let alamatArray = [arr[3], arr[4], arr[2], arr[5], "tera kantor"];
 
@@ -960,6 +971,10 @@ export class sidangWilayahPrepareCam extends prepareCam {
             this.#obj.set_shopChartTemp = [].concat(shopChart);
             this.#obj.set_dataToSend = Object.assign({}, dat);
             
+            console.log(this.#obj.get_shopChartTemp);
+
+            console.log(this.#obj.get_dataToSend);
+
             //alert(JSON.stringify(this.#obj.get_dataToSend));
             alert("UTTP sudah ditambahkan ke Register Chart");
 
@@ -1082,6 +1097,7 @@ export class sidangWilayahPrepareCam extends prepareCam {
     
     async #lakukanScan() {
         let scandiv = document.querySelector(".scanDiv");
+        //scandiv.classList.add("hidden");
         scandiv.classList.remove("hidden");
         let h3 = document.createElement("h3");
         h3.setAttribute("id","qrTitle");

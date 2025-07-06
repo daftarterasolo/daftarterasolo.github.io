@@ -711,22 +711,38 @@ export class sidangWilayahQrcodeSubmitProcessorRedApp extends submitProcessor {
 
 	#checkIfDataToSendIsEmpty() {
 		if (Object.keys(this.#obj.get_dataToSend).length === 0) {
+			//alert("Anda belum melakukan scan Qrcode....Silahkan klik icon 'Qrcode' untuk men-Scan.")
 			throw new Error("Anda belum melakukan scan Qrcode....Silahkan klik icon 'Qrcode' untuk men-Scan.");
+
 		}
 	}
 
+	
 	#checkIfdataFormIsEmpty() {
 		let useQrAddr = this.#checkIfdataToSendIsUsedAlamatQr();
-		let dat = this.#obj.get_dataForm; 
+		/*let dat = this.#obj.get_dataForm; 
 		if ((dat['nama'] === "" || dat['alamat'] === "" || dat['kel'] === "") && useQrAddr === false ) {
 			throw new Error("Anda belum mengisi data identitas dengan lengkap....Silahkan klik tanda tombol 'Back' untuk melengkapi data identitas.");
 		}
 
 		if (dat['wa'] === "") {
 			document.getElementById('wa').value = "62";
-		}
+		}*/
 
 	}
+	
+
+	/*
+	#cekJikadataFormKosong() {
+		//console.log("checked");
+		let useQrAddr = this.#checkIfdataToSendIsUsedAlamatQr();
+		let dat = this.#obj.get_dataForm; 
+		if ((dat['nama'] === "" || dat['alamat'] === "" || dat['kel'] === "") && useQrAddr === false ) {
+			throw new Error("Anda belum mengisi data identitas dengan lengkap....Silahkan klik tanda tombol 'Back' untuk melengkapi data identitas.");
+		}
+	}
+	*/
+
 
 	#checkIfdataToSendIsUsedAlamatQr() {
 		let status = true;
@@ -768,13 +784,15 @@ export class sidangWilayahQrcodeSubmitProcessorRedApp extends submitProcessor {
 		//alert(JSON.stringify(this.#obj.get_dataToSend));
 		
 		let dataComplete = {
-			'dataForm' : this.#obj.get_dataForm,
+			/*'dataForm' : this.#obj.get_dataForm,*/
 			'dataToSend' : this.#obj.get_dataToSend,
 			'authData' : this.#authData 
 		}
 
-		alert(dataComplete);
+		console.log(dataComplete);
+		console.log("stop disini");
 
+/*
 		//console.log('Melakukan entry data ... ');
 		document.querySelector('.loadingBar').style.display = "block";
 		try {
@@ -801,13 +819,14 @@ export class sidangWilayahQrcodeSubmitProcessorRedApp extends submitProcessor {
 			document.querySelector('.loadingBar').style.display = "none";
 			this.#ifEntryDataFail(`Entri Data Gagal. Error  :::  ${err}`);
 		}
+*/
 		
 	}
 
 	#detectIfSubmitClicked() {
 		document.getElementById('sbmt').addEventListener('click', e => {
 			try {
-				//this.#checkIfdataToSendIsUsedAlamatQr();
+				console.log("test");
 				this.get_checkIfDataToSendIsEmpty;
 				this.#checkIfdataFormIsEmpty();
 				this.#entryTheData();

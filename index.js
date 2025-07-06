@@ -13,6 +13,10 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp, sidangWi
 	let menuMsy = document.querySelector(".menu").children[1];
 
 	menuMsy.addEventListener("click", async () => {
+		document.querySelector(".scanDiv") ? document.querySelector(".scanDiv").classList.add("hidden") : '';
+		document.getElementById("qrTitle") ? document.getElementById("qrTitle").remove() : '';
+		document.getElementById("qrCloseHref") ? document.getElementById("qrCloseHref").remove() : '';
+		
 		let str = `<div class="mainContent">      
 						<div class="subContent" id="sub1">
 							<div class="title">Silahkan isi data Anda</div>
@@ -56,6 +60,9 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp, sidangWi
 	let menuPbrk = document.querySelector(".menu").children[0];
 
 	menuPbrk.addEventListener("click", async () => {
+		document.querySelector(".scanDiv") ? document.querySelector(".scanDiv").classList.add("hidden") : '';
+		document.getElementById("qrTitle") ? document.getElementById("qrTitle").remove() : '';
+		document.getElementById("qrCloseHref") ? document.getElementById("qrCloseHref").remove() : '';
 
 		let str = `<div class="mainContent">      
 						<div class="subContent" id="sub1">
@@ -110,6 +117,10 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp, sidangWi
 
 	let menuSpbu = document.querySelector(".menu").children[2];
 	menuSpbu.addEventListener("click", () => {
+		document.querySelector(".scanDiv") ? document.querySelector(".scanDiv").classList.add("hidden") : '';
+		document.getElementById("qrTitle") ? document.getElementById("qrTitle").remove() : '';
+		document.getElementById("qrCloseHref") ? document.getElementById("qrCloseHref").remove() : '';
+
 		let str = `<div class="mainContent">      
 						<div class="subContent" id="sub1">
 							<div class="title">Silahkan isi data Anda</div>
@@ -161,6 +172,10 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp, sidangWi
 
 	let menuLoko = document.querySelector(".menu").children[3];
 	menuLoko.addEventListener("click", () => {
+		document.querySelector(".scanDiv") ? document.querySelector(".scanDiv").classList.add("hidden") : '';
+		document.getElementById("qrTitle") ? document.getElementById("qrTitle").remove() : '';
+		document.getElementById("qrCloseHref") ? document.getElementById("qrCloseHref").remove() : '';
+
 		let str = `<div class="mainContent">      
 						<div class="subContent" id="sub1">
 							<div class="title">Silahkan isi data Anda</div>
@@ -207,6 +222,12 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp, sidangWi
 	let menuReparatir = document.querySelector(".menu2").children[0];
 
 	menuReparatir.addEventListener("click", async () => {
+		document.querySelector(".scanDiv") ? document.querySelector(".scanDiv").classList.add("hidden") : '';
+		document.getElementById("qrTitle") ? document.getElementById("qrTitle").remove() : '';
+		document.getElementById("qrCloseHref") ? document.getElementById("qrCloseHref").remove() : '';
+
+
+
 		let str = `<div class="mainContent">      
 						<div class="subContent" id="sub1">
 							<div class="title">Silahkan isi data</div>
@@ -281,6 +302,10 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp, sidangWi
 	let menuSidangWilayah = document.querySelector(".menu2").children[3];
 
 	menuSidangWilayah.addEventListener('click', async () => {
+		document.querySelector(".scanDiv") ? document.querySelector(".scanDiv").classList.add("hidden") : '';
+		document.getElementById("qrTitle") ? document.getElementById("qrTitle").remove() : '';
+		document.getElementById("qrCloseHref") ? document.getElementById("qrCloseHref").remove() : '';
+
 		let str = `<div class="mainContent">      
 						<div class="subContent" id="sub1">
 							<div class="title">Silahkan isi data</div>
@@ -350,6 +375,10 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp, sidangWi
 	let menuSidangWilayahQrcode = document.querySelector(".menu3").children[0];
 
 	menuSidangWilayahQrcode.addEventListener('click', async () => {
+		document.querySelector(".scanDiv") ? document.querySelector(".scanDiv").classList.add("hidden") : '';
+		document.getElementById("qrTitle") ? document.getElementById("qrTitle").remove() : '';
+		document.getElementById("qrCloseHref") ? document.getElementById("qrCloseHref").remove() : '';
+
 		let str = `<div class="mainContent">      
 						<!--
 						<div class="subContent" id="sub1">
