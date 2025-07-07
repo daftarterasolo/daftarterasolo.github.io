@@ -449,8 +449,8 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 		this.#api = "https://script.google.com/macros/s/AKfycbxtDiPHpxyoa1OosTatDPQiGYG7QmleQhcAUvfMPemCjzYGiYAVzG0Ax55Fo-VMv615qw/exec";
 		this.#apiPendataan = "https://script.google.com/macros/s/AKfycbxRmSNhvaHL9qbuHpt6Qyln7qTEJxgQPnoAtY7t4Fl4AvWNQRw9MhaGQmjrjeQzJ0aBEA/exec";
 		//this.#apiPendataan = "https://script.google.com/macros/s/AKfycbyrgLXibr-l7UKOgotx4EV_nLouw9Ng4RHbi8TyE_wHrteD8AejoMBL1fv-7xwERwoj/exec";
-		//this.#apiInsertNonPendataan = "https://script.google.com/macros/s/AKfycbxZGsROdnnc0wzkm63e08TCYEZiZWl7ZjJZNO5jDmmXADI-ZaW2JjAeCTJJvwQ1O37k/exec";
-		this.apiInsertNonPendataan = "https://script.google.com/macros/s/AKfycbw0IXS8bgcRtQNUqme6n802t3afhUYiJPWwpySrLi4BNXtSiGWXzCcOxUIhhTbpQ-9G/exec";
+		this.#apiInsertNonPendataan = "https://script.google.com/macros/s/AKfycbxZGsROdnnc0wzkm63e08TCYEZiZWl7ZjJZNO5jDmmXADI-ZaW2JjAeCTJJvwQ1O37k/exec";
+		//this.apiInsertNonPendataan = "https://script.google.com/macros/s/AKfycbzA9GHqKeUnwFKFNMWPQGAYD5tLr3LEKRNsz1cECy-j-Q-czPtHzhtg1wSfBnhrtakW/exec";
 		this.#authData = {
 			'id' : sessionStorage.getItem('id'),
 			//'token' : sessionStorage.getItem('key')
@@ -559,19 +559,24 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 			});
 			
 
-			await fetch(this.#apiInsertNonPendataan, {
+			//await fetch(this.#apiInsertNonPendataan, {
+			await fetch("https://script.google.com/macros/s/AKfycbxJl5AaoKV-bXXb7FHogWumCC60piR61NCO-N65dMyU1HGGQuT5fzbuijZv09j0Hqya/exec", {
 				method : 'POST',
 				body : JSON.stringify(dataComplete)
 			})
 			.then(e => e.json())
 			.then(e => {
+				//console.log(e);
+				
 				switch(e.status) {
 					case 'success':
 						alert("Update data non-pendataan berhasil");
 						break;
 					default:
 						alert("Update data non-pendataan gagal!.");
+					
 				}
+				
 			});
 
 			document.querySelector('.loadingBar').style.display = "none";

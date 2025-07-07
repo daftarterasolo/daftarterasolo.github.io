@@ -6,55 +6,45 @@
 
 </head>
 <body>
-
-</body>
 <script language="javascript">
-/*  
-class GrandParent {
-  funcA() {
-    console.log('GrandParent');
-  }
-}
-class Parent extends GrandParent {
-  funcA() {
-    console.log('Parent');
-  }
-}
-class Child extends Parent {
-  funcA() {
-    console.log('Child');
-    new GrandParent().funcA();
-  }
-}
 
-const child = new Child();
-child.funcA();
-*/
-
-class submitProcessor {
-  constructor() {
-    if (this.constructor === submitProcessor) {
-      throw new Error("Object cannot be made..");
-    } 
+async function test() {
+  let dataComplete = {
+      'dataForm' : {
+        "nama": "tes",
+        "alamat": "Jl. Samanhudi No. 256",
+        "kel": "Sondakan",
+        "wa": "62",
+        "jenisTera": "tuk"
+      },
+      'dataToSend' : {
+        "1": [
+          "TM",
+          "25 kg",
+          "20 g",
+          "Timbangan Meja",
+          "img/TM.jfif",
+          "1",
+          "SSS",
+          "",
+          "",
+          ""
+        ]
+      },
+      'authData' : '' 
   }
 
-  test() {
-    throw new Error("Abstract Method has no implementation...");
-  }
-}
 
-class newSubmitProcessor extends submitProcessor {
-  constructor(name) {
-    super(constructor);
-    this.name = name;
-  }
-
-  test() {
-    console.log(this.name);
-  }
+  await fetch("https://script.google.com/macros/s/AKfycbxJl5AaoKV-bXXb7FHogWumCC60piR61NCO-N65dMyU1HGGQuT5fzbuijZv09j0Hqya/exec", {
+    method : 'POST',
+    body : JSON.stringify(dataComplete)
+  })
+  .then(e => e.json())
+  .then(e => console.log(e));
 }
 
-const sbmt = new newSubmitProcessor("Egaotomo");
-sbmt.test();
+test();
 </script>
+</body>
+
 </html>
