@@ -450,7 +450,7 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 		this.#apiPendataan = "https://script.google.com/macros/s/AKfycbxRmSNhvaHL9qbuHpt6Qyln7qTEJxgQPnoAtY7t4Fl4AvWNQRw9MhaGQmjrjeQzJ0aBEA/exec";
 		//this.#apiPendataan = "https://script.google.com/macros/s/AKfycbyrgLXibr-l7UKOgotx4EV_nLouw9Ng4RHbi8TyE_wHrteD8AejoMBL1fv-7xwERwoj/exec";
 		//this.#apiInsertNonPendataan = "https://script.google.com/macros/s/AKfycbxZGsROdnnc0wzkm63e08TCYEZiZWl7ZjJZNO5jDmmXADI-ZaW2JjAeCTJJvwQ1O37k/exec";
-		this.apiInsertNonPendataan = "https://script.google.com/macros/s/AKfycbwg5Dl7YuPvwgUIcGLnnZm0_EowXvt7W-18KRcTJafSHrJG_DPpdsxKHj2Sl9nWOq50/exec";
+		this.apiInsertNonPendataan = "https://script.google.com/macros/s/AKfycbw0IXS8bgcRtQNUqme6n802t3afhUYiJPWwpySrLi4BNXtSiGWXzCcOxUIhhTbpQ-9G/exec";
 		this.#authData = {
 			'id' : sessionStorage.getItem('id'),
 			//'token' : sessionStorage.getItem('key')
