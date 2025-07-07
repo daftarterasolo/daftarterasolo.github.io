@@ -560,7 +560,7 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 			
 
 			//await fetch(this.#apiInsertNonPendataan, {
-			await fetch("https://script.google.com/macros/s/AKfycbxJl5AaoKV-bXXb7FHogWumCC60piR61NCO-N65dMyU1HGGQuT5fzbuijZv09j0Hqya/exec", {
+			await fetch("https://script.google.com/macros/s/AKfycbzsJluM4PKuekYAkgdUXntxf5AdO0RkFUAmrXs-JCBi4g16QJxGK1BhrfwVZJ6ECXJJiw/exec", {
 				method : 'POST',
 				body : JSON.stringify(dataComplete)
 			})
