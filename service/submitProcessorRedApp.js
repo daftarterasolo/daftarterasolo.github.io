@@ -446,7 +446,8 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 		this.#detectIfSubmitDuaClicked();
 
 		//this.#api = "https://script.google.com/macros/s/AKfycbz3dOKdU1Bk1w9gaQdmqbIx6ZAqTecYhah4KFVx0-CNKgIHVzBbztL-pQ9vFUQtHq8V1Q/exec";	
-		this.#api = "https://script.google.com/macros/s/AKfycbxtDiPHpxyoa1OosTatDPQiGYG7QmleQhcAUvfMPemCjzYGiYAVzG0Ax55Fo-VMv615qw/exec";
+		//this.#api = "https://script.google.com/macros/s/AKfycbxtDiPHpxyoa1OosTatDPQiGYG7QmleQhcAUvfMPemCjzYGiYAVzG0Ax55Fo-VMv615qw/exec";
+		this.#api = "https://script.google.com/macros/s/AKfycbzLd69E9J7nZHYr8PYrNgvcCDAnZC-vD8viwhjnuR2z23NUCkutb-0i7JMy8P1ZwLI0-w/exec";
 		this.#apiPendataan = "https://script.google.com/macros/s/AKfycbxRmSNhvaHL9qbuHpt6Qyln7qTEJxgQPnoAtY7t4Fl4AvWNQRw9MhaGQmjrjeQzJ0aBEA/exec";
 		//this.#apiPendataan = "https://script.google.com/macros/s/AKfycbyrgLXibr-l7UKOgotx4EV_nLouw9Ng4RHbi8TyE_wHrteD8AejoMBL1fv-7xwERwoj/exec";
 		this.#apiInsertNonPendataan = "https://script.google.com/macros/s/AKfycbxZGsROdnnc0wzkm63e08TCYEZiZWl7ZjJZNO5jDmmXADI-ZaW2JjAeCTJJvwQ1O37k/exec";
