@@ -669,12 +669,18 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 	#detectIfSubmitDuaClicked() {
 		document.getElementById('sbmt2').addEventListener('click', e => {
 			try {
-				console.log(this.#obj.get_dataToUpdatePendataan);
-				//this.get_checkIfDataToSendIsEmpty;
-				this.#checkIfdataFormIsEmpty();
-				//this.get_checkIfDataToSendIsEmpty;
-				this.#entryTheDataPendataan();
+				let konfirmasi = confirm(`Apakah anda benar akan mendaftarkan uttp ini?`);
 				
+				switch(konfirmasi) {
+					case false :
+						break;
+					default :
+						this.#checkIfdataFormIsEmpty();
+						this.#entryTheDataPendataan();
+				}
+				//console.log(this.#obj.get_dataToUpdatePendataan);				
+				//this.#checkIfdataFormIsEmpty();				
+				//this.#entryTheDataPendataan();				
 			}
 			catch(e) {
 				alert(e);

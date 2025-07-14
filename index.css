@@ -584,6 +584,26 @@ legend.legendTitle {
     transform : translateY(2px);
 }
 
+.other2 {
+    background-color: #8daab7;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width : 90px;
+    color : #FFFFFF;
+    outline: none;
+    border: 2px solid #FFFFFF;
+    border-radius: 3px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+.other2:active {
+    background-color: orangered;
+    transform : translateY(2px);
+}
+
 .shopChart {
     position: relative;
 }
@@ -1458,7 +1478,7 @@ div.captionMenu3 {
             margin-top: 2px; /* Beri jarak dari elemen di atasnya */
             align-self: flex-end; /* Posisikan ke kanan jika flex item */
             order: -1; /* Posisikan di paling atas sebagai flex item */
-            font-size: 0.6em;
+            font-size: 0.9em;
             right: unset; /* Hapus override dari properti absolute */
             top: unset;
             color : #FFF;

@@ -385,6 +385,7 @@ export class createFormSidangWilayahRedApp {
                         <div class="card-icon" style="background-image : url(${subarray[0][4]});"></div>
                         <p>QRCODE : ${el[0]}<br>Merek : ${el[8]}<br>Tipe: ${el[9]} <br> Serial : ${el[11]}</p>
                         <input type="button" name="submit-data" class="sbmt2" id="${i}" value="Submit">
+                        <input type="button" name="other-data" class="other2" id="${i}" value="UTTP Lain">
                     </div>
                 </div>
                 `;
@@ -417,6 +418,21 @@ export class createFormSidangWilayahRedApp {
 			});	
 		});
 
+
+		document.querySelectorAll(".other2").forEach(item => {
+			item.addEventListener("click", el => {
+				document.getElementById("qrcode").value = "";
+				const newElem = document.createElement("span");
+				newElem.textContent = document.getElementById("nama").value;
+				newElem.style.color = "#FFFFFF";
+				newElem.style.fontFamily = "'Poppins', sans-serif";
+				newElem.style.fontSize = "18px";
+				newElem.style.backgroundColor = "darkorange";
+				document.querySelector(".shopChart").prepend(newElem);
+				document.querySelector(".close-button").click();
+				document.getElementById("next").click();
+			});
+		});
 	}
 
 	//method utk dijalankan pd generateBtnHandler()
