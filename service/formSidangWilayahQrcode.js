@@ -12,6 +12,7 @@ export class createFormSidangWilayahRedAppQrcode {
 	static shopChartTemp = [];
 	static dataToSend = {};
 	#dataForm = {};
+	dataToUpdatePendataan = {};
 
 	constructor(formKontainer, str) {
 		this.formKontainer = formKontainer;
@@ -483,6 +484,9 @@ export class createFormSidangWilayahRedAppQrcode {
 		return this.constructor.shopChartTemp;
 	}
 
+	get get_dataToUpdatePendataan() {
+		return this.dataToUpdatePendataan;
+	}
 
 	set set_listIndex(idx) {
 		this.#listIndex = idx;
@@ -495,5 +499,9 @@ export class createFormSidangWilayahRedAppQrcode {
 	set set_shopChartTemp(val) {
 		this.constructor.shopChartTemp = val;
 	}
+
+	set set_dataToUpdatePendataan(val) {
+		this.dataToUpdatePendataan = val;
+	}	
 
 }

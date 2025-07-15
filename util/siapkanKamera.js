@@ -945,7 +945,9 @@ export class sidangWilayahPrepareCam extends prepareCam {
             //alert(JSON.stringify(shopChart));
 
             if (document.getElementById("addr").checked) {
-                let alamatArray = [document.getElementById("qrNama").value, document.getElementById("qrAlamat").value, arr[2], arr[5], "tera kantor"];
+                let alamatArray = [document.getElementById("qrNama").value, document.getElementById("qrAlamat").value, arr[2], arr[5], "tera kantor", arr[1]];
+
+                //shopChart.push([arr[8],arr[9],arr[10],nama_uttp,"","1",`${arr[11] === "" || arr[11] === "-" ? document.getElementById("qrMerk").value : arr[11]}`,`${arr[12] === "" || arr[12] === "-" ? document.getElementById("qrModel").value : arr[12]}`,`${arr[15] === "" || arr[15] === "-" ? document.getElementById("qrSn").value : arr[15]}`,`${document.getElementById("qrBuatan").value}`, alamatArray]);
 
                 shopChart.push([arr[8],arr[9],arr[10],nama_uttp,"","1",`${arr[11] === "" || arr[11] === "-" ? document.getElementById("qrMerk").value : arr[11]}`,`${arr[12] === "" || arr[12] === "-" ? document.getElementById("qrModel").value : arr[12]}`,`${arr[15] === "" || arr[15] === "-" ? document.getElementById("qrSn").value : arr[15]}`,`${document.getElementById("qrBuatan").value}`, alamatArray]);
                 //console.log(shopChart);

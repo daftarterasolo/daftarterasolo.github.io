@@ -631,6 +631,8 @@ export class sidangWilayahSubmitProcessorRedApp extends submitProcessor {
 
 			//let qrCode = {this.#obj.get_dataToUpdatePendataan};
 
+			console.log(this.#obj.get_dataToUpdatePendataan);
+
 			await fetch(this.#apiPendataan, {
 				method : "POST",
 				body : JSON.stringify({'qrCode' : this.#obj.get_dataToUpdatePendataan})
@@ -707,6 +709,7 @@ export class sidangWilayahQrcodeSubmitProcessorRedApp extends submitProcessor {
 	#obj;
 	#api;
 	#authData;
+	#apiPendataan;
 
 	constructor(obj) {
 		super(constructor);
@@ -715,7 +718,7 @@ export class sidangWilayahQrcodeSubmitProcessorRedApp extends submitProcessor {
 
 		//this.#api = "https://script.google.com/macros/s/AKfycbz3dOKdU1Bk1w9gaQdmqbIx6ZAqTecYhah4KFVx0-CNKgIHVzBbztL-pQ9vFUQtHq8V1Q/exec";	
 		this.#api = "https://script.google.com/macros/s/AKfycbxtDiPHpxyoa1OosTatDPQiGYG7QmleQhcAUvfMPemCjzYGiYAVzG0Ax55Fo-VMv615qw/exec";
-
+		this.#apiPendataan = "https://script.google.com/macros/s/AKfycbxRmSNhvaHL9qbuHpt6Qyln7qTEJxgQPnoAtY7t4Fl4AvWNQRw9MhaGQmjrjeQzJ0aBEA/exec";
 		this.#authData = {
 			'id' : sessionStorage.getItem('id'),
 			//'token' : sessionStorage.getItem('key')
@@ -784,7 +787,7 @@ export class sidangWilayahQrcodeSubmitProcessorRedApp extends submitProcessor {
 	#afterEntryDataSuccess() {
 		this.#obj.set_dataToSend = {};
 		this.#obj.set_shopChartTemp = [];
-		this.#resetFormIdentitas();	
+		//this.#resetFormIdentitas();	
 		this.#deleteTableShopChart();
 	}
 
@@ -803,9 +806,16 @@ export class sidangWilayahQrcodeSubmitProcessorRedApp extends submitProcessor {
 		}
 
 		console.log(dataComplete);
+		console.log(this.#obj.get_shopChartTemp);
 		console.log("stop disini");
 
-/*
+		let qrcode = this.#obj.get_shopChartTemp[0][10][5];
+		let alamat = this.#obj.get_shopChartTemp[0][10][1];
+		let dataToUpdatePendataan = [[qrcode, alamat, "SAH", "33.72.01.1008"]];
+
+		console.log(dataToUpdatePendataan);
+
+
 		//console.log('Melakukan entry data ... ');
 		document.querySelector('.loadingBar').style.display = "block";
 		try {
@@ -815,7 +825,7 @@ export class sidangWilayahQrcodeSubmitProcessorRedApp extends submitProcessor {
 			})
 			.then(e => e.json())
 			.then(e => {
-				document.querySelector('.loadingBar').style.display = "none";
+				//document.querySelector('.loadingBar').style.display = "none";
 				setTimeout(() => {},1000);
 				//e.result === 'success' ? this.#afterEntryDataSuccess(e.msg) : this.#ifEntryDataFail(e.msg);
 				switch(e.result) {
@@ -827,12 +837,19 @@ export class sidangWilayahQrcodeSubmitProcessorRedApp extends submitProcessor {
 						this.#ifEntryDataFail(e.msg);
 				}
 			});
+
+			await fetch("https://script.google.com/macros/s/AKfycbxRmSNhvaHL9qbuHpt6Qyln7qTEJxgQPnoAtY7t4Fl4AvWNQRw9MhaGQmjrjeQzJ0aBEA/exec", {
+				method : "POST",
+				body : JSON.stringify({'qrCode' : dataToUpdatePendataan})
+			});
+
+			document.querySelector('.loadingBar').style.display = "none";
 		}
 		catch(err) {
 			document.querySelector('.loadingBar').style.display = "none";
 			this.#ifEntryDataFail(`Entri Data Gagal. Error  :::  ${err}`);
 		}
-*/
+
 		
 	}
 
