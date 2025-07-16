@@ -809,11 +809,21 @@ export class sidangWilayahQrcodeSubmitProcessorRedApp extends submitProcessor {
 		console.log(this.#obj.get_shopChartTemp);
 		console.log("stop disini");
 
+
+		let dataToUpdatePendataan = [];
+
+		for (let key in this.#obj.get_shopChartTemp) {
+			let qrcode = this.#obj.get_shopChartTemp[key][10][5];
+			let alamat = this.#obj.get_shopChartTemp[key][10][1];
+			dataToUpdatePendataan.push([qrcode, alamat, "SAH", "33.72.01.1008"]);
+		}
+
+		/*
 		let qrcode = this.#obj.get_shopChartTemp[0][10][5];
 		let alamat = this.#obj.get_shopChartTemp[0][10][1];
 		let dataToUpdatePendataan = [[qrcode, alamat, "SAH", "33.72.01.1008"]];
-
-		console.log(dataToUpdatePendataan);
+		*/
+		//console.log(dataToUpdatePendataan);
 
 
 		//console.log('Melakukan entry data ... ');
