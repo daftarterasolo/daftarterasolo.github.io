@@ -717,7 +717,8 @@ export class sidangWilayahQrcodeSubmitProcessorRedApp extends submitProcessor {
 		this.#detectIfSubmitClicked();
 
 		//this.#api = "https://script.google.com/macros/s/AKfycbz3dOKdU1Bk1w9gaQdmqbIx6ZAqTecYhah4KFVx0-CNKgIHVzBbztL-pQ9vFUQtHq8V1Q/exec";	
-		this.#api = "https://script.google.com/macros/s/AKfycbxtDiPHpxyoa1OosTatDPQiGYG7QmleQhcAUvfMPemCjzYGiYAVzG0Ax55Fo-VMv615qw/exec";
+		//this.#api = "https://script.google.com/macros/s/AKfycbxtDiPHpxyoa1OosTatDPQiGYG7QmleQhcAUvfMPemCjzYGiYAVzG0Ax55Fo-VMv615qw/exec";
+		this.#api = "https://script.google.com/macros/s/AKfycbzLd69E9J7nZHYr8PYrNgvcCDAnZC-vD8viwhjnuR2z23NUCkutb-0i7JMy8P1ZwLI0-w/exec";
 		this.#apiPendataan = "https://script.google.com/macros/s/AKfycbxRmSNhvaHL9qbuHpt6Qyln7qTEJxgQPnoAtY7t4Fl4AvWNQRw9MhaGQmjrjeQzJ0aBEA/exec";
 		this.#authData = {
 			'id' : sessionStorage.getItem('id'),
