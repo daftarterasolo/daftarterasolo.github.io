@@ -841,6 +841,10 @@ export class sidangWilayahQrcodeSubmitProcessorRedApp extends submitProcessor {
 			await fetch("https://script.google.com/macros/s/AKfycbxRmSNhvaHL9qbuHpt6Qyln7qTEJxgQPnoAtY7t4Fl4AvWNQRw9MhaGQmjrjeQzJ0aBEA/exec", {
 				method : "POST",
 				body : JSON.stringify({'qrCode' : dataToUpdatePendataan})
+			})
+			.then(e => e.json())
+			.then(e => {
+				e.result === 'success' ? alert("Update Data Pendataan Berhasil") : alert("Update Data Pendataan Gagal");
 			});
 
 			document.querySelector('.loadingBar').style.display = "none";
