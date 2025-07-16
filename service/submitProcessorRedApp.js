@@ -844,7 +844,7 @@ export class sidangWilayahQrcodeSubmitProcessorRedApp extends submitProcessor {
 			})
 			.then(e => e.json())
 			.then(e => {
-				e.result === 'success' ? alert("Update Data Pendataan Berhasil") : alert("Update Data Pendataan Gagal");
+				e.status === 'success' ? alert("Update Data Pendataan Berhasil") : alert("Update Data Pendataan Gagal");
 			});
 
 			document.querySelector('.loadingBar').style.display = "none";
