@@ -843,9 +843,9 @@ export class sidangWilayahPrepareCam extends prepareCam {
     }
 
     async #siapkanKamera(obj) {
-        this.#buatHasilQueryDiv("KEL1472");
+        //this.#buatHasilQueryDiv("KEL1472");
         
-        /*
+        
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
             let video = await new activateStream().mulaiStream();
@@ -881,7 +881,7 @@ export class sidangWilayahPrepareCam extends prepareCam {
             
         }    
         //video.getTracks().forEach(track => track.stop());
-        */
+        
     }
 
     #closeScanDiv() {
