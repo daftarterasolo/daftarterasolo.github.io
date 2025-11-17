@@ -264,8 +264,8 @@ import { masySubmitProcessorRedApp, sidangWilayahSubmitProcessorRedApp, sidangWi
 					<div class="jmlhDiv hidden">
 						<form class="spe">
 							<input type="text" class="form_data2" name="uttp" id="uttp" readonly>
-							<input type="text" class="form_data2" name="kap" id="kap" readonly placeholder="kapasitas">
-							<input type="text" class="form_data2" name="d" id="d" readonly placeholder="dayabaca">
+							<input type="text" class="form_data2" name="kap" id="kap" placeholder="kapasitas">
+							<input type="text" class="form_data2" name="d" id="d" placeholder="dayabaca">
 							<input type="number" class="form_data2" name="jml" id="jml" placeholder="jumlah..">
 							<input type="text" class="form_data2" name="merk" id="merk" placeholder="merk" list="merkHistory">
 							<input type="text" class="form_data2" name="tipe" id="tipe" placeholder="tipe/model" list="tipeHistory">
