@@ -830,7 +830,8 @@ export class sidangWilayahQrcodeSubmitProcessorRedApp extends submitProcessor {
 		//console.log('Melakukan entry data ... ');
 		document.querySelector('.loadingBar').style.display = "block";
 		try {
-			await fetch("https://script.google.com/macros/s/AKfycbzLd69E9J7nZHYr8PYrNgvcCDAnZC-vD8viwhjnuR2z23NUCkutb-0i7JMy8P1ZwLI0-w/exec", {
+			//await fetch("https://script.google.com/macros/s/AKfycbzLd69E9J7nZHYr8PYrNgvcCDAnZC-vD8viwhjnuR2z23NUCkutb-0i7JMy8P1ZwLI0-w/exec", {
+			await fetch("https://script.google.com/macros/s/AKfycby8tahNaMlUxquo8UFcO7E4p2Xiz8082EKC27W7nIHsZ0NryLx9am3RLPfAKsIx55XUDA/exec", {
 				method : "POST",
 				body : JSON.stringify(dataComplete)
 			})
